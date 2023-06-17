@@ -16,8 +16,8 @@
   #define AirPumpPWMIO  (uint8_t) 2
 
   #define PWM_Offset  (uint8_t) 50
-  #define Ligth_Offset  (uint8_t) 50
-  #define Water_Offset  (uint8_t) 50
+  #define Ligth_Offset  (uint8_t) 100
+  #define Water_Offset  (uint8_t) 70
 
 
 enum{
@@ -30,9 +30,9 @@ enum{
 
   #define WaterLevelADC (uint8_t) 0
   #define Power12VADC   (uint8_t) 3
-  #define PowerVolCal   (float) 6.722
-  #define WaterLevelCal     (float) 48
-  #define WaterLevelOffset  (float) 0.9
+  #define PowerVolCal   (float) 7.8
+  #define WaterLevelHigh     (float) 2200
+  #define WaterLevelLow      (float) 400
 
   #define DS18B20IO   (uint8_t) 1
   #define IIC_SDA     (uint8_t) 4

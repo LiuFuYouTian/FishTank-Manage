@@ -1,0 +1,20 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Shape Island Report                                              )
+(                                                                     )
+(    Drawing          : FishTank-Manage.brd                           )
+(    Software Version : 17.4S032                                      )
+(    Date/Time        : Sun Jun  4 02:09:04 2023                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+  Total islands on design: 3
+
+
+  <<<  ETCH  >>>
+
+    Layer = BOTTOM
+	Point on shape: (3.2134 26.0743)  Net: GND
+	Point on shape: (30.7342 17.3978)  Net: GND
+	Point on shape: (27.7811 20.7008)  Net: GND

@@ -1,0 +1,850 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 17.4.0 d001Jun-04-2023 at 00:08:38 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='FISHTANK-MANAGE';
+ POST_TIME='Aug 29 2022 11:07:37';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ B1 'BUZZ_CST931AP_BUZZ':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS26586@LIBRARY1.BUZZ.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins26586@library1.\buzz.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins26586@library1.\buzz.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C1 'CAP NP_C0603_4.7UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS625@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins625@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins625@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C10 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1661@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1661@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1661@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C11 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1687@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1687@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1687@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C12 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1713@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1713@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1713@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C13 'CAP NP_C0603_4.7NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS8139@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins8139@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins8139@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C14 'CAP NP_C0603_4.7NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS11630@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins11630@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins11630@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C15 'CAP NP_C0603_4.7NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS13013@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins13013@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins13013@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C17 'CAP NP_C0603_4.7NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS14333@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins14333@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins14333@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C18 'CAP NP_C0603_4.7NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS15743@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins15743@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins15743@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C19 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS23287@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins23287@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins23287@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C2 'CAP NP_C0603_4.7UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS740@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins740@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins740@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C20 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS23313@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins23313@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins23313@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C22 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS24261@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins24261@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins24261@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C23 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS25406@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins25406@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins25406@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C25 'CAP NP_C0603_4.7NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS31942@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins31942@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins31942@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C3 'CAP NP_C0603_10NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS766@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins766@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins766@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C4 'CAP NP_C0603_10NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS846@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins846@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins846@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C5 'CAP NP_C0603_4.7UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS872@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins872@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins872@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C6 'CAP NP_C0603_4.7NF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1249@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1249@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1249@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C7 'CAP NP_C0603_39PF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1275@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1275@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1275@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C8 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1609@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1609@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1609@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C9 'CAP NP_C1210_22UF':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1635@DISCRETE.CAP NP.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1635@discrete.\cap np.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1635@discrete.\cap np.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D1 'DIODE_1_DO-214AC_S310':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1446@FISHTANK-MANAGE.DIODE_1.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1446@\fishtank-manage\.\diode_1.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1446@\fishtank-manage\.\diode_1.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D2 'DIODE_1_SOD-123_MBR0520':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS18621@FISHTANK-MANAGE.DIODE_1.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins18621@\fishtank-manage\.\diode_1.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins18621@\fishtank-manage\.\diode_1.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D5 'LED_LED-0805_LED':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS28302@DISCRETE.LED.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins28302@discrete.\led.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins28302@discrete.\led.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D6 'LED_LED-0805_LED':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS35139@DISCRETE.LED.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins35139@discrete.\led.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins35139@discrete.\led.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D7 'LED_LED-0805_LED':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS35435@DISCRETE.LED.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins35435@discrete.\led.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins35435@discrete.\led.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J2 'PH-6_B6BPHKSLFSN_PH-6':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS7330@LIBRARY1.PH-6.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins7330@library1.\ph-6.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins7330@library1.\ph-6.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J3 'PH-4_B4BPHKSLFSN_PH-4':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS8525@LIBRARY1.PH-4.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins8525@library1.\ph-4.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins8525@library1.\ph-4.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J4 'PH-4_B4BPHKSLFSN_PH-4':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS8920@LIBRARY1.PH-4.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins8920@library1.\ph-4.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins8920@library1.\ph-4.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J6 'PH-6_B6BPHKSLFSN_PH-6':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS19310@LIBRARY1.PH-6.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins19310@library1.\ph-6.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins19310@library1.\ph-6.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J8 'PH-6_B6BPHKSLFSN_PH-6':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS62892@LIBRARY1.PH-6.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins62892@library1.\ph-6.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins62892@library1.\ph-6.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J9 'PH-6_B6BPHKSLFSN_PH-6':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS63253@LIBRARY1.PH-6.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins63253@library1.\ph-6.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins63253@library1.\ph-6.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ L1 'INDUCTOR IRON_H0630_6.8UH':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS1572@DISCRETE.INDUCTOR IRON.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins1572@discrete.\inductor iron.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins1572@discrete.\inductor iron.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ M1 'M2_M2_M2':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS56142@LIBRARY1.M2.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins56142@library1.\m2.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins56142@library1.\m2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ M2 'M2_M2_M2':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS56192@LIBRARY1.M2.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins56192@library1.\m2.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins56192@library1.\m2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ M3 'M2_M2_M2':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS56214@LIBRARY1.M2.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins56214@library1.\m2.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins56214@library1.\m2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ M4 'M2_M2_M2':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS56236@LIBRARY1.M2.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins56236@library1.\m2.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins56236@library1.\m2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q1 'MOSFET N_0_SOT23_MOSFET N':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS10608@FISHTANK-MANAGE.MOSFET N_0.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins10608@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins10608@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q2 'MOSFET N_0_SOT23_MOSFET N':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS14269@FISHTANK-MANAGE.MOSFET N_0.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins14269@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins14269@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q3 'MOSFET N_0_SOT23_MOSFET N':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS15679@FISHTANK-MANAGE.MOSFET N_0.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins15679@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins15679@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q4 'MOSFET N_0_SOT23_MOSFET N':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS26614@FISHTANK-MANAGE.MOSFET N_0.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins26614@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins26614@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ Q5 'MOSFET N_0_SOT23_MOSFET N':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS59575@FISHTANK-MANAGE.MOSFET N_0.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins59575@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins59575@\fishtank-manage\.\mosfet n_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R1 'R_R0603_49.9K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS650@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins650@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins650@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R10 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS10889@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins10889@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins10889@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R11 'R_R0603_220R':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS11090@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins11090@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins11090@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R12 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS12864@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins12864@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins12864@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R14 'R_R0603_220R':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS14287@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins14287@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins14287@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R15 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS14349@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins14349@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins14349@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R16 'R_R0603_220R':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS15697@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins15697@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins15697@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R17 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS17548@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins17548@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins17548@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R18 'R_R0603_220R':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS19848@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins19848@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins19848@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R19 'R_R0603_220R':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS19874@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins19874@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins19874@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R20 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS19955@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins19955@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins19955@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R21 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS19981@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins19981@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins19981@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R22 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS27111@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins27111@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins27111@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R23 'R_R0603_6.8K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS29453@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins29453@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins29453@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R24 'R_R0603_1K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS29479@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins29479@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins29479@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R25 'R_R0603_1K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS57273@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins57273@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins57273@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R26 'R_R0603_1K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS57299@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins57299@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins57299@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R27 'R_R0603_1K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS57325@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins57325@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins57325@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R4 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS2358@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins2358@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins2358@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R5 'R_R0603_1.91K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS2689@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins2689@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins2689@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R6 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS7694@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins7694@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins7694@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R7 'R_R0603_500K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS58964@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins58964@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins58964@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R8 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS8780@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins8780@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins8780@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R9 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS8814@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins8814@discrete.\r.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins8814@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T1 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS33354@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins33354@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins33354@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T10 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS44001@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins44001@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins44001@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T11 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS44021@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins44021@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins44021@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T12 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS44041@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins44041@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins44041@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T13 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS44338@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins44338@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins44338@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T16 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS44398@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins44398@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins44398@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T2 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS35109@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins35109@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins35109@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T3 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS35405@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins35405@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins35405@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T4 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS43664@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins43664@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins43664@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T5 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS43696@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins43696@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins43696@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T6 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS43730@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins43730@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins43730@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T7 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS43764@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins43764@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins43764@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T8 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS43798@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins43798@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins43798@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ T9 'TESTPOINT_TESTPOINT_TESTPOINT':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS43981@LIBRARY1.TESTPOINT.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins43981@library1.\testpoint.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins43981@library1.\testpoint.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U1 'ESP32-C3_ESP32C3_LUATOS_ESP32-C3':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS404@LIBRARY1.ESP32-C3.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins404@library1.\esp32-c3.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins404@library1.\esp32-c3.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U2 'TPS54331_SOIC-8_TPS54331':;
+
+SECTION_NUMBER 1
+ '@FISHTANK-MANAGE.SCHEMATIC1(SCH_1):INS558@LIBRARY1.TPS54331.NORMAL(CHIPS)':
+ C_PATH='@\fishtank-manage\.schematic1(sch_1):ins558@library1.\tps54331.normal\(chips)',
+ P_PATH='@\fishtank-manage\.schematic1(sch_1):page1_ins558@library1.\tps54331.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+END.

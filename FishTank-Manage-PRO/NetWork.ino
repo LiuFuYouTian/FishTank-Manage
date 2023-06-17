@@ -30,21 +30,23 @@ void WIFInit(void)
   Serial.println(WiFi.localIP());
 }
 
-float GetServerDataValue(String datatype,String data)
+long long GetServerDataValue(String datatype,String data)
 {
   String DatavalueStrReverse = "";
   String DatavalueStr = "";
-  float datavalue = -1;
+  long long datavalue = -1;
   int length = 0;
   if(data != ERROR)
   {
     int place = data.indexOf(datatype) - 10;//数值为type向后偏移10个字符
 
+    if(place == -1) return 0;
+
     do   
     {
       length ++;
       DatavalueStrReverse += data[place--];
-    }while((data[place] >= '0' && data[place] <= '9') || data[place] == '.' || data[place] == '-');
+    }while(data[place] != ':' || data[place] == '-' && place);
 
     //Serial.println(DatavalueStrReverse);
 
@@ -57,7 +59,7 @@ float GetServerDataValue(String datatype,String data)
     //Serial.println(DatavalueStr);
 
     datavalue = DatavalueStr.toFloat();
-  }  
+  } 
 
   //Serial.print("\r\n");
   //Serial.print(datavaluestr);
@@ -66,6 +68,55 @@ float GetServerDataValue(String datatype,String data)
   //Serial.println(datavalue);
 
   return datavalue;    
+}
+
+String GetServerDataString(String datatype,String data)
+{
+  String DatavalueStrReverse = "";
+  String DatavalueStr = "";
+  float datavalue = -1;
+  int length = 0;
+  if(data != ERROR)
+  {
+    int place = data.indexOf(datatype) - 10;//为type向后偏移1个字符
+
+    if(place == -1) return DatavalueStr;
+
+    do   
+    {
+      length ++;
+      DatavalueStrReverse += data[place--];
+      //Serial.println("data=" + data[place]);
+    }while(data[place] != ':' && place);
+
+    //Serial.println(DatavalueStrReverse);
+    DatavalueStr += '0';
+    do   
+    {
+        length --;
+        DatavalueStr += DatavalueStrReverse[length];
+
+        if(length%4 == 0 && length)
+        {
+          DatavalueStr += ',';
+        }
+        else if(length%2 == 0 && length)
+        {
+          DatavalueStr += ':';
+        }
+    }while(length);
+
+    //Serial.println("DatavalueStrReverse="+DatavalueStrReverse[place]);
+    Serial.println(datatype +  " = " + DatavalueStr);
+  }
+
+  //Serial.print("\r\n");
+  //Serial.print(datavaluestr);
+  //Serial.print("\r\n");
+  //Serial.print(datatype + " = ");//串口打印HTTP请求 
+  //Serial.println(datavalue);
+
+  return DatavalueStr;    
 }
 
 
@@ -107,7 +158,7 @@ String GetServerData(String datatype)
   return RETURN;
 }
 
-String PosDataLink(String datatype,float datavalul,uint8_t EndFlag)
+String PosDataLinkVal(String datatype,long long datavalul,uint8_t EndFlag)
 {
   String data = "\"" + datatype + "\":" + String(datavalul);
 
@@ -118,6 +169,17 @@ String PosDataLink(String datatype,float datavalul,uint8_t EndFlag)
   return data;
 }
 
+
+String PosDataLinkStr(String datatype,String datastr,uint8_t EndFlag)
+{
+  String data = "\"" + datatype + "\":" + "\"" + datastr + "\"";
+
+  if(EndFlag == false)
+  {
+    data += ",";
+  }
+  return data;
+}
 
 String PosServerData(String datatype)
 {

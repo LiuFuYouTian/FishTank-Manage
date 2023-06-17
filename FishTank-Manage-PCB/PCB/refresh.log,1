@@ -1,0 +1,82 @@
+Sun Jun  4 00:32:21 2023				Page     1
+
+
+ 
+Update Symbols/Modules Logfile
+	Sun Jun  4 00:32:21 2023
+
+------ Module Refresh Messages ------
+
+SUMMARY:    Updated 0 out of 0 modules
+
+------ End Module Messages     ------
+
+
+
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Refresh Symbol                                                   )
+(                                                                     )
+(    Drawing          : FishTank-Manage.brd                           )
+(    Software Version : 17.4S032                                      )
+(    Date/Time        : Sun Jun  4 00:32:22 2023                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+Sun Jun  4 00:32:22 2023				Page     1
+
+
+------ Symbol Refresh Directives ------
+
+Input design  = 'D:/PCBDesign/FishTank-Manage/PCB/FishTank-Manage.brd'
+Output design = ''
+
+Update mechanical symbols              = 'NO'
+Update format symbols                  = 'NO'
+Update package symbols                 = 'NO'
+Update shape/flash symbols             = 'NO'
+Update symbol padstacks                = 'NO'
+Preserve padstacks replaced on pins    = 'NO'
+Reset symbol text and size locations   = 'YES'
+Reset Pin Escapes (fanouts)            = 'NO'
+Ripup Etch                             = 'NO'
+Reset custom drill data                = 'NO'
+Symbol list file                       = 'C:/Users/a1833/AppData/Local/Temp/#Taaaabu11576.tmp'
+
+
+------ Library Paths ------
+PSMPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Program Files/Cadence/SPB_17.4/share/local/pcb/symbols 
+           C:/Program Files/Cadence/SPB_17.4/share/pcb/pcb_lib/symbols 
+           C:/Program Files/Cadence/SPB_17.4/share/pcb/allegrolib/symbols 
+           D:/PCBDesign/00-LIB 
+
+PADPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Program Files/Cadence/SPB_17.4/share/local/pcb/padstacks 
+           C:/Program Files/Cadence/SPB_17.4/share/pcb/pcb_lib/symbols 
+           C:/Program Files/Cadence/SPB_17.4/share/pcb/allegrolib/symbols 
+           D:/PCBDesign/00-LIB 
+
+
+------ Symbol Refresh Messages ------
+
+
+'ESP32C3_LUATOS'  symbol starting to refresh:
+     ERROR(SPMHDB-243): Cannot modify element; the object or a parent has the FIXED property. [help]
+     ERROR(SPMHNI-254): Unable to load symbol, 'ESP32C3_LUATOS': 'Cannot modify element; the object or a parent has the FIXED prop~
+     erty. [help]'.
+     
+
+
+----- Symbol Update Summary ----
+
+Refresh symbol errors; due to these errors this design is NOT updated.
+       1  errors detected.
+       0  warnings detected.

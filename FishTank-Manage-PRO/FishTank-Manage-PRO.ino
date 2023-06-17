@@ -32,7 +32,7 @@ void loop() {
     configTime(8 * 3600, 0, NTP1, NTP2,NTP3);
     Serial.println("configTime");
   }
-  Serial.println(&timeinfo, "%F %T %A"); // 格式化输出:2021-10-24 23:00:44 Sunday
+  //Serial.println(&timeinfo, "%F %T %A"); // 格式化输出:2021-10-24 23:00:44 Sunday
 
 }
 

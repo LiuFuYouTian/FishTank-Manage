@@ -1,0 +1,134 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  D:/PCBDesign/FishTank-Manage/PCB/FishTank-Manage.brd                        |
+|                                                    Sun Jun  4 00:09:07 2023  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |    pin_id     |   x   |   y   |   to  net    |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  GND          pins ADDED TO this existing net (pins not previously on any net)
+                                 J9.4                           
+                                 J9.5                           
+                                 J9.6                           
+                                 Q5.2                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N00988       pins DELETED FROM this net (all pins deleted)
+                                 U2.3            21.3650 17.7880
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N08125       pins MOVED FROM this net (to net name listed on right)
+                                 J2.1             3.5000 50.5000
+                                                                WATER_LEVEL_ADC
+                                 R7.1             7.0000 50.2000
+                                                                            GND
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N14263       pins MOVED FROM this net (to net name listed on right)
+                                 Q2.3            32.0000 32.3890
+                                                                         N63054
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N14311       pins ADDED TO this existing net (pins not previously on any net)
+                                 Q5.1                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N16322       pins ADDED TO this existing net (pins not previously on any net)
+                                 J8.1                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N22854       pins DELETED FROM this net (all pins deleted)
+                                 U1.10           11.1100 22.1900
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N63054       pins ADDED TO this new net
+                                 J8.5                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N63058       pins ADDED TO this new net
+                                 J8.6                           
+                                 Q5.3                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  VCC5V        pins ADDED TO this existing net (pins not previously on any net)
+                                 J8.2                           
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  VCC12V       pins ADDED TO this existing net (pins not previously on any net)
+                                 J8.3                           
+                                 J8.4                           
+                                 J9.1                           
+                                 J9.2                           
+                                 J9.3                           
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  D:/PCBDesign/FishTank-Manage/PCB/FishTank-Manage.brd                        |
+|                                                    Sun Jun  4 00:09:07 2023  |
+|------------------------------------------------------------------------------|
+| COMPONENT DEFINITION added to design                                         |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    device type                                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ R_R0603_500K
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   3  |
+|------------------------------------------------------------------------------|
+|  D:/PCBDesign/FishTank-Manage/PCB/FishTank-Manage.brd                        |
+|                                                    Sun Jun  4 00:09:07 2023  |
+|------------------------------------------------------------------------------|
+| COMPONENTS DELETED from design                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type      |   x   |   y                        |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ J5                  PH-4_B4BPHKSLFSN_PH-4 36.5200 25.1800
+ J7                  PH-4_B4BPHKSLFSN_PH-4 23.3000  3.0200
+ K1                  BUTTON_BUTTON_BUTTON  20.0000 56.5000
+ R2                  R_R0603_332K          23.5000 13.0000
+ R3                  R_R0603_68.1K         23.5000 11.0000
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   4  |
+|------------------------------------------------------------------------------|
+|  D:/PCBDesign/FishTank-Manage/PCB/FishTank-Manage.brd                        |
+|                                                    Sun Jun  4 00:09:07 2023  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ J8                  PH-6_B6BPHKSLFSN_PH-6 
+ J9                  PH-6_B6BPHKSLFSN_PH-6 
+ Q5                  MOSFET N_0_SOT23_MOSFET N 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   5  |
+|------------------------------------------------------------------------------|
+|  D:/PCBDesign/FishTank-Manage/PCB/FishTank-Manage.brd                        |
+|                                                    Sun Jun  4 00:09:07 2023  |
+|------------------------------------------------------------------------------|
+| COMPONENTS CHANGED from one device type to another in design                 |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        | new device type     |   x   |   y   |  old  device type  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ R7                  R_R0603_500K           7.0000 51.0000 R_R0603_10K
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   6  |
+|------------------------------------------------------------------------------|
+|  D:/PCBDesign/FishTank-Manage/PCB/FishTank-Manage.brd                        |
+|                                                    Sun Jun  4 00:09:07 2023  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ J8.6                           PRIM_FILE      .\pstchip.dat
+ J9.6                           PRIM_FILE      .\pstchip.dat
+ Q5.2                           PRIM_FILE      .\pstchip.dat
+ R7.2            7.0000 51.0000 PRIM_FILE      .\pstchip.dat
+|------------------------------------------------------------------------------|
+|       Nets changed          :      20                                        |
+|       Comp definitions added:       1                                        |
+|       Components added      :       3                                        |
+|       Components deleted    :       5                                        |
+|       Components changed    :       1                                        |
+|       Slot property added   :       4                                        |
+|                                                                              |
+|   Total ECO changes reported:      34                                        |
+|------------------------------------------------------------------------------|

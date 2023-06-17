@@ -1,0 +1,23 @@
+{ Using PSTWRITER 17.4.0 d001Jun-04-2023 at 00:08:37 }
+
+#1 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#17" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#2 WARNING(ORCAP-36042): Pin "3.3V" is renamed to "3.3V#18" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#3 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#25" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#4 WARNING(ORCAP-36042): Pin "3.3V" is renamed to "3.3V#26" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#5 WARNING(ORCAP-36042): Pin "5V" is renamed to "5V#31" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#6 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#32" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#7 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#1" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#8 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#7" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#9 WARNING(ORCAP-36042): Pin "3.3V" is renamed to "3.3V#13" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#10 WARNING(ORCAP-36042): Pin "GND" is renamed to "GND#14" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+#11 WARNING(ORCAP-36042): Pin "5V" is renamed to "5V#16" as visible power pin of same name already exists in Package ESP32-C3 , U1: SCHEMATIC1, PAGE1 (8.30, 1.10).
+INFO(ORCAP-36080): Scanning netlist files ...
+
+Loading... D:\PCBDESIGN\FISHTANK-MANAGE\SCH\allegro\pstchip.dat
+
+Loading... D:\PCBDESIGN\FISHTANK-MANAGE\SCH\allegro\pstchip.dat
+
+Loading... D:\PCBDESIGN\FISHTANK-MANAGE\SCH\allegro\pstxprt.dat
+
+Loading... D:\PCBDESIGN\FISHTANK-MANAGE\SCH\allegro\pstxnet.dat
+packaging the design view...

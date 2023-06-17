@@ -1,0 +1,58 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    NC DRILL Log                                                     )
+(                                                                     )
+(    Drawing          : FishTank-Manage.brd                           )
+(    Software Version : 17.4S032                                      )
+(    Date/Time        : Sun Jun  4 02:56:46 2023                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+
+ Processing NC Parameters file 'nc_param.txt' ...
+
+ NC PARAMETERS
+ -------------
+
+ FORMAT   		2.5
+ MACHINE-OFFSET		x:0.00000	y:0.00000   (mm)
+ FEEDRATE		1
+ COORDINATES		ABSOLUTE
+ OUTPUT-UNITS		METRIC
+ TOOL-ORDER		INCREASING
+ REPEAT-CODES		YES
+ SUPPRESS-LEAD-ZEROES	NO
+ SUPPRESS-TRAIL-ZEROES	NO
+ SUPPRESS-EQUAL		NO
+ TOOL-SELECT		NO
+ HEADER			none
+ LEADER			12
+ CODE			ASCII
+ SEPARATE		NO
+ SEPARATE-ROUTING	NO
+ OPTIMIZE_DRILLING	NO
+ ENHANCED_EXCELLON	NO
+ SCALE			1.000000
+
+
+
+ Drill files being output to directory 'D:/PCBDesign/FishTank-Manage/PCB/gerber' ...
+
+
+
+     'FishTank-Manage-1-4.drl' created for holes connecting TOP and BOTTOM
+     ---------------------------------------------------------------------
+
+           Num     Size      +/- Tolerance     Plating   Quantity
+
+            1.   0.3302    0.0000/  0.0000      PLATED        168
+            2.   0.7000    0.0000/  0.0000      PLATED          8
+            3.   0.8000    0.0000/  0.0000      PLATED         46
+            4.   0.9000    0.0000/  0.0000      PLATED         26
+            5.   2.2000    0.0000/  0.0000      PLATED          4
+
+     ---- Total holes:                                        252
+
+     ---- Total head travel:              5.83 feet (1.78 meters)
+

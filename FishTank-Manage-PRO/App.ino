@@ -4,21 +4,22 @@ ControlType Control;
 #define FeedCheckDelay (uint32_t) 1000*31
 #define FeedMotorDelay (uint32_t) 1000*1
 
-String FeedTimePoint = "06:00,10:00,14:00,18:00,22:15,02.00";
-String PumpTimeMaintainPoint = "07:00,19:00";
-
+String FeedTimeStr = "06:00,10:00,14:00,18:00,22:15,02.00";
+String PumpTimeMaintainStr = "07:00,19:00";
 
 void PostSensorData(void)
 {
     Serial.printf("\r\nPostSensorData Start = %d\r\n",millis());
 
-    String  Str  = PosDataLink("Water_Temperature" ,SensorData.Temp         ,false);
-            Str += PosDataLink("Lingth_Intensity"  ,SensorData.Ligth        ,false);
-            Str += PosDataLink("Power_Voltage"     ,SensorData.PowerValue   ,false);
-            Str += PosDataLink("Water_level"       ,SensorData.WaterLevel   ,false);
-            Str += PosDataLink("Water_Pump_Speed"  ,SensorData.PumpSpeed    ,false);
-            Str += PosDataLink("millis"            ,millis()                ,false);
-            Str += PosDataLink("Feed_Count"         ,SensorData.FeedCount    ,true);
+    String  Str  = PosDataLinkVal("Water_Temperature"     ,SensorData.Temp         ,false);
+            Str += PosDataLinkVal("Lingth_Intensity"      ,SensorData.Ligth        ,false);
+            Str += PosDataLinkVal("Power_Voltage"         ,SensorData.PowerValue   ,false);
+            Str += PosDataLinkVal("Water_level"           ,SensorData.WaterLevel   ,false);
+            Str += PosDataLinkVal("Water_Pump_Speed"      ,SensorData.PumpSpeed    ,false);
+            Str += PosDataLinkVal("millis"                ,millis()/1000/60        ,false);
+            Str += PosDataLinkVal("Feed_Count"            ,SensorData.FeedCount    ,false);
+            Str += PosDataLinkStr("FeedTimeStr"          ,FeedTimeStr              ,false);
+            Str += PosDataLinkStr("PumpTimeMaintainStr"  ,PumpTimeMaintainStr      ,true);
 
     PosServerData(Str);
     Serial.printf("\r\nPostSensorData End = %d\r\n",millis());
@@ -28,7 +29,7 @@ void PostClossFeed(void)
 {
     Serial.printf("\r\nPostSensorData Start = %d\r\n",millis());
 
-    String  Str = PosDataLink("Feed_Switch",0,true);
+    String  Str = PosDataLinkVal("Feed_Switch",0,true);
     PosServerData(Str);
     Serial.printf("\r\nPostSensorData End = %d\r\n",millis());
 }
@@ -37,7 +38,10 @@ void GetServerOrder(void)
 {
     Serial.printf("\r\nGetServerOrder Start = %d\r\n",millis());
 
-    String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop");
+    String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop,FeedTimePoint,PumpTimeMaintainPoint");
+    //String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop");
+
+    //Serial.println("ServerData = " + ServerData);
 
     if(String(ERROR) != ServerData)
     {
@@ -45,7 +49,10 @@ void GetServerOrder(void)
       Control.Air_Pump_Power    = GetServerDataValue("Air_Pump_Power",ServerData)/100*255;
       Control.LED_Power         = GetServerDataValue("LED_Power",ServerData)/100*255;
       Control.Auto_StarAndStop  = GetServerDataValue("Auto_StarAndStop",ServerData);
-      Control.Feed_Switch  = GetServerDataValue("Feed_Switch",ServerData);
+      Control.Feed_Switch       = GetServerDataValue("Feed_Switch",ServerData);
+
+      FeedTimeStr           = GetServerDataString("FeedTimePoint",ServerData);
+      PumpTimeMaintainStr   = GetServerDataString("PumpTimeMaintainPoint",ServerData);
     }
 
     Serial.printf("Control.Water_Pump_Power = %d\r\n" ,Control.Water_Pump_Power);
@@ -53,6 +60,9 @@ void GetServerOrder(void)
     Serial.printf("Control.LED_Power        = %d\r\n" ,Control.LED_Power);
     Serial.printf("Control.Feed_Switch      = %d\r\n" ,Control.Feed_Switch);
     Serial.printf("Control.Auto_StarAndStop = %d\r\n" ,Control.Auto_StarAndStop);
+
+    Serial.println(FeedTimeStr);
+    Serial.println(PumpTimeMaintainStr);
 
     Serial.printf("\r\nGetServerOrder End = %d\r\n",millis());
 }
@@ -102,6 +112,9 @@ void DeviceInit(void)
 
   pinMode(StatLEDIO,OUTPUT);//指示LED控制GPIO
   digitalWrite(StatLEDIO, LOW);
+
+  pinMode(BuzzIO,OUTPUT);//指示LED控制GPIO
+  digitalWrite(BuzzIO, LOW);
   
 }
 
@@ -110,8 +123,8 @@ void FeedDeviceConnect(void)
         Serial.printf("\r\nFeedDeviceConnect Start = %d\r\n",millis());
         Control.Feed_Switch = 0;
 
-        vTaskDelete(_GetSensorData);
-        vTaskDelete(_NetConnect);
+        vTaskSuspend(_GetSensorData);
+        vTaskSuspend(_NetConnect);
 
         vTaskDelay(3000);
 
@@ -132,8 +145,8 @@ void FeedDeviceConnect(void)
         SensorData.FeedCount++;
         Control.Feed_Switch = 0;
 
-        xTaskCreate(GetSensorData,"GetSensorData",2048,NULL,3,&_GetSensorData);
-        xTaskCreate(NetConnect,"NetConnect",2048,NULL,4,&_NetConnect);
+        vTaskResume(_GetSensorData);
+        vTaskResume(_NetConnect);
 
         Serial.printf("\r\nFeedDeviceConnect End = %d\r\n",millis());
 }
@@ -157,8 +170,8 @@ int TimePointCheck(String str ,uint8_t IsHour)
     current += String(timeinfo.tm_min);
   }
 
-  Serial.println(str);
-  Serial.println(&timeinfo, "%F %T %A"); // 格式化输出:2021-10-24 23:00:44 Sunday
+  //Serial.println(str);
+  //Serial.println(&timeinfo, "%F %T %A"); // 格式化输出:2021-10-24 23:00:44 Sunday
 
   return str.indexOf(current);
 }
@@ -177,13 +190,13 @@ void DeviceConnect(void *pt)
         Control.LED_Power = 255;
       }
 
-      if(SensorData.WaterLevel <= Water_Offset)
+      if(SensorData.WaterLevel <= Water_Offset && Control.Water_Pump_Power != 0)
       {
         Control.Water_Pump_Power = 0;
         ledcWrite(PumpPWM_CH,0);
       }
 */
-      if(TimePointCheck(PumpTimeMaintainPoint,true) == -1 && Control.Auto_StarAndStop == 0)
+      if(TimePointCheck(PumpTimeMaintainStr,true) == -1 && Control.Auto_StarAndStop == 0)
       {
         ledcWrite(PumpPWM_CH,Control.Water_Pump_Power);
       }
@@ -222,12 +235,12 @@ void FeedConnect(void *pt)
 {
   while(1)
   {
-    if(TimePointCheck(FeedTimePoint,false) != -1)
+    if(TimePointCheck(FeedTimeStr,false) != -1)
     {
         FeedDeviceConnect();
     }
 
-    if(TimePointCheck(PumpTimeMaintainPoint,true) != -1 || Control.Auto_StarAndStop == 1)
+    if(TimePointCheck(PumpTimeMaintainStr,true) != -1 || Control.Auto_StarAndStop == 1)
     {
         Auto_StarAndStopFlag = !Auto_StarAndStopFlag;
         if(Auto_StarAndStopFlag == 0)
@@ -235,6 +248,9 @@ void FeedConnect(void *pt)
         else
           ledcWrite(PumpPWM_CH,255);
     }
+
+    vTaskResume(_GetSensorData);
+    vTaskResume(_NetConnect);
 
     vTaskDelay(FeedCheckDelay);
   }

@@ -14,10 +14,14 @@ SensorDataType LastSensorData;
 void SensorInit(void)
 {
   SensorData.FeedCount = 0;
+
+  analogReadResolution(12);     //ADC设置为12bit
   pinMode(WaterLevelADC,INPUT); //水位电压检测
   pinMode(Power12VADC,INPUT);   //12V电压检测  
+
   pinMode(PumpSpeedIO,INPUT);  //水泵转速检测
   pinMode(FeedResetIO,INPUT);  //水泵转速检测
+
 
   Wire.begin(IIC_SDA, IIC_SCL);//光线传感器IIC初始化
   lightMeter.begin();
@@ -48,13 +52,30 @@ void GetSensorData(void *pt)
     
     SensorData.Temp       = ds.getTempC();
     SensorData.Ligth      = lightMeter.readLightLevel();
-    SensorData.PowerValue = analogRead(Power12VADC)*3.3/4095*PowerVolCal;
-    SensorData.WaterLevel = (analogRead(WaterLevelADC)*3.3/4095 - WaterLevelOffset)*WaterLevelCal;
+
+    SensorData.PowerValue = analogReadMilliVolts(Power12VADC);     //读取12V电源电压
+    SensorData.WaterLevel = analogReadMilliVolts(WaterLevelADC);        //读取水位监测ADC电压
+
+
+    //Serial.printf("SensorData.PowerValueADC  = %fmV\r\n",SensorData.PowerValue);
+    //Serial.printf("SensorData.WaterLevelADC  = %fmV\r\n",SensorData.WaterLevel);
+
+    SensorData.PowerValue = SensorData.PowerValue*PowerVolCal/1000;                      
+    SensorData.WaterLevel = map(SensorData.WaterLevel,WaterLevelLow,WaterLevelHigh,0,100);
+
     SensorData.PumpSpeed  = pulseIn(PumpSpeedIO,HIGH);
     if(SensorData.PumpSpeed != 0)
     {
       SensorData.PumpSpeed = (float)1000000/SensorData.PumpSpeed;
     }
+
+    /*
+    Serial.printf("SensorData.Temp        = %f\r\n",SensorData.Temp);
+    Serial.printf("SensorData.Ligth       = %f\r\n",SensorData.Ligth);
+    Serial.printf("SensorData.PowerValue  = %f\r\n",SensorData.PowerValue);
+    Serial.printf("SensorData.WaterLevel  = %f\r\n",SensorData.WaterLevel);
+    Serial.printf("SensorData.PumpSpeed   = %f\r\n",SensorData.PumpSpeed);
+    */
 
     SensorData.Temp = LowPsaa(SensorData.Temp,LastSensorData.Temp);
     LastSensorData.Temp = SensorData.Temp;
@@ -71,11 +92,13 @@ void GetSensorData(void *pt)
     SensorData.PumpSpeed = LowPsaa(SensorData.PumpSpeed,LastSensorData.PumpSpeed);
     LastSensorData.PumpSpeed = SensorData.PumpSpeed;
 
-    Serial.printf("SensorData.Temp        = %0.3f\r\n",SensorData.Temp);
-    Serial.printf("SensorData.Ligth       = %0.3f\r\n",SensorData.Ligth);
-    Serial.printf("SensorData.PowerValue  = %0.3f\r\n",SensorData.PowerValue);
-    Serial.printf("SensorData.WaterLevel  = %0.3f\r\n",SensorData.WaterLevel);
-    Serial.printf("SensorData.PumpSpeed   = %0.3f\r\n",SensorData.PumpSpeed);
+    /*
+    Serial.printf("SensorData.TempLP        = %f\r\n",SensorData.Temp);
+    Serial.printf("SensorData.LigthLP       = %f\r\n",SensorData.Ligth);
+    Serial.printf("SensorData.PowerValueLP  = %f\r\n",SensorData.PowerValue);
+    Serial.printf("SensorData.WaterLevelLP  = %f\r\n",SensorData.WaterLevel);
+    Serial.printf("SensorData.PumpSpeed   = %f\r\n",SensorData.PumpSpeed);
+    */
 
     Serial.printf("\r\nGetSensorData End = %d\r\n",millis());
     vTaskDelay(1000);
