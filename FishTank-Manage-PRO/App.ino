@@ -1,10 +1,11 @@
 #include"relate.h"
 
 ControlType Control;
-#define FeedCheckDelay (uint32_t) 1000*31
+#define FeedCheckDelay (uint32_t) 1000*35
 #define FeedMotorDelay (uint32_t) 1000*1
 
-String FeedTimeStr = "06:00,10:00,14:00,18:00,22:15,02.00";
+//String FeedTimeStr = "06:00,10:00,14:00,18:00,22:15,02.00";
+String FeedTimeStr = "";
 String PumpTimeMaintainStr = "07:00,19:00";
 
 void PostSensorData(void)
@@ -29,7 +30,9 @@ void PostClossFeed(void)
 {
     Serial.printf("\r\nPostSensorData Start = %d\r\n",millis());
 
-    String  Str = PosDataLinkVal("Feed_Switch",0,true);
+    String  Str = PosDataLinkVal("Feed_Switch",0,false);
+            Str += PosDataLinkVal("Feed_Count",SensorData.FeedCount    ,true);
+            
     PosServerData(Str);
     Serial.printf("\r\nPostSensorData End = %d\r\n",millis());
 }
@@ -71,6 +74,9 @@ void NetConnect(void *pt)
 {
   while(1)
   {
+
+    Serial.println("NetConnect");
+    //Serial.println("Control.Feeding_Sign = flase");
     if(WiFi.status() == WL_CONNECTED)
     {
       PostSensorData();
@@ -80,6 +86,7 @@ void NetConnect(void *pt)
     {
       WIFInit();
     }
+    vTaskDelay(20);
   }
 }
 
@@ -122,13 +129,11 @@ void FeedDeviceConnect(void)
 {
         Serial.printf("\r\nFeedDeviceConnect Start = %d\r\n",millis());
         Control.Feed_Switch = 0;
-
-        vTaskSuspend(_GetSensorData);
-        vTaskSuspend(_NetConnect);
-
-        vTaskDelay(3000);
+        SensorData.FeedCount++;
 
         PostClossFeed();
+        vTaskSuspend(_GetSensorData);
+        vTaskSuspend(_NetConnect);
 
         digitalWrite(FeedControlIO, HIGH);
         vTaskDelay(FeedMotorDelay);
@@ -142,7 +147,6 @@ void FeedDeviceConnect(void)
         }
 
         digitalWrite(FeedControlIO, LOW);
-        SensorData.FeedCount++;
         Control.Feed_Switch = 0;
 
         vTaskResume(_GetSensorData);
@@ -210,7 +214,7 @@ void DeviceConnect(void *pt)
         FeedDeviceConnect();
       }
 
-      int Sum = Control.Water_Pump_Power + Control.LED_Power + Control.Air_Pump_Power + Control.Feed_Switch + Control.Auto_StarAndStop;
+      int Sum = Control.Water_Pump_Power + Control.LED_Power + Control.Air_Pump_Power + Control.Feed_Switch + Control.Auto_StarAndStop + SensorData.FeedCount;
       if(Sum != Control.Order_Sum)
       {
         Control.Order_Sum = Sum;
@@ -235,7 +239,7 @@ void FeedConnect(void *pt)
 {
   while(1)
   {
-    if(TimePointCheck(FeedTimeStr,false) != -1)
+    if(TimePointCheck(FeedTimeStr,false) != -1 || Control.Feed_Switch != 0)
     {
         FeedDeviceConnect();
     }
@@ -249,8 +253,8 @@ void FeedConnect(void *pt)
           ledcWrite(PumpPWM_CH,255);
     }
 
-    vTaskResume(_GetSensorData);
-    vTaskResume(_NetConnect);
+    //vTaskResume(_GetSensorData);
+    //vTaskResume(_NetConnect);
 
     vTaskDelay(FeedCheckDelay);
   }

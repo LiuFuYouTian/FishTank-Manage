@@ -16,10 +16,10 @@ void setup() {
   SensorInit();           //外部传感器初始化
 
   xTaskCreate(GetSensorData,"GetSensorData",2048,NULL,3,&_GetSensorData);
-  xTaskCreate(NetConnect,"NetConnect",2048,NULL,1,&_NetConnect);
+  xTaskCreate(NetConnect,"NetConnect",2048,NULL,5,&_NetConnect);
 
-  xTaskCreate(DeviceConnect,"DeviceConnect",2048,NULL,2,&_DeviceConnect);
-  xTaskCreate(FeedConnect,"FeedConnect",2048,NULL,4,NULL);
+  xTaskCreate(DeviceConnect,"DeviceConnect",2048,NULL,3,&_DeviceConnect);
+  xTaskCreate(FeedConnect,"FeedConnect",2048,NULL,6,NULL);
 }
 
 void loop() {

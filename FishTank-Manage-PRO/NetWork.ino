@@ -30,11 +30,11 @@ void WIFInit(void)
   Serial.println(WiFi.localIP());
 }
 
-long long GetServerDataValue(String datatype,String data)
+float GetServerDataValue(String datatype,String data)
 {
   String DatavalueStrReverse = "";
   String DatavalueStr = "";
-  long long datavalue = -1;
+  float datavalue = -1;
   int length = 0;
   if(data != ERROR)
   {
@@ -46,7 +46,7 @@ long long GetServerDataValue(String datatype,String data)
     {
       length ++;
       DatavalueStrReverse += data[place--];
-    }while(data[place] != ':' || data[place] == '-' && place);
+    }while(data[place] != ':' || data[place] == '-' && place >= 0);
 
     //Serial.println(DatavalueStrReverse);
 
@@ -87,7 +87,7 @@ String GetServerDataString(String datatype,String data)
       length ++;
       DatavalueStrReverse += data[place--];
       //Serial.println("data=" + data[place]);
-    }while(data[place] != ':' && place);
+    }while(data[place] != ':' && place >= 0);
 
     //Serial.println(DatavalueStrReverse);
     DatavalueStr += '0';
@@ -119,9 +119,19 @@ String GetServerDataString(String datatype,String data)
   return DatavalueStr;    
 }
 
+uint8_t SerialLock = false;
 
 String GetServerData(String datatype)
 {
+  while (SerialLock == true) {
+      vTaskDelay(10);
+      Serial.println("GetServerData SerialLock!!!");
+  }
+
+  SerialLock = true;
+
+  Serial.println("At GetServerData SerialLock = true");
+
   String RETURN = ERROR;  
   String post;
 
@@ -140,7 +150,7 @@ String GetServerData(String datatype)
       {
         break;
       }
-      vTaskDelay(50); 
+      vTaskDelay(100); 
     }
     //Serial.print("vTaskDelayend\r\n");
     while(client.available())
@@ -152,13 +162,15 @@ String GetServerData(String datatype)
   }
   else 
   {
-    Serial.printf("wifi no connect!\r\n");
+    Serial.printf("Server no connect!\r\n");
   }
 
+  SerialLock = false;
+  Serial.println("At GetServerData SerialLock = false");
   return RETURN;
 }
 
-String PosDataLinkVal(String datatype,long long datavalul,uint8_t EndFlag)
+String PosDataLinkVal(String datatype,float datavalul,uint8_t EndFlag)
 {
   String data = "\"" + datatype + "\":" + String(datavalul);
 
@@ -183,6 +195,14 @@ String PosDataLinkStr(String datatype,String datastr,uint8_t EndFlag)
 
 String PosServerData(String datatype)
 {
+  while (SerialLock == true) {
+      vTaskDelay(10);
+      Serial.println("PosServerData SerialLock!!!");
+  }
+
+  SerialLock = true;
+  Serial.println("At PosServerData SerialLock = true");
+
   String RETURN = ERROR;  
       String data = "{" + datatype + "}\r\n\r\n";
       //String data = "{\"Water_Pump_Speed\":" + String(datavalul)+"}\r\n\r\n";
@@ -213,20 +233,23 @@ String PosServerData(String datatype)
             {
               break;
             }
-            vTaskDelay(50); 
+            vTaskDelay(100); 
           }
 
-
+          uint8_t overtime = 0;
           while(client.available())
           {//判断WIFI是否有数据
             RETURN = client.readStringUntil('\r');//读取WIFI数据赋给line 
-            vTaskDelay(200); 
+            vTaskDelay(200);
+            if(overtime++ >= 100) break;
           }
           Serial.print(RETURN);//打印line  
       }
       else
       {
-        Serial.printf("wifi no connect!\r\n");
-      }  
+        Serial.printf("Server no connect!\r\n");
+      }
+  SerialLock = false;
+  Serial.println("At PosServerData SerialLock = false");
   return RETURN;
 }

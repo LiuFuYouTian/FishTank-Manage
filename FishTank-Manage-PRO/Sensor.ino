@@ -60,7 +60,7 @@ void GetSensorData(void *pt)
     //Serial.printf("SensorData.PowerValueADC  = %fmV\r\n",SensorData.PowerValue);
     //Serial.printf("SensorData.WaterLevelADC  = %fmV\r\n",SensorData.WaterLevel);
 
-    SensorData.PowerValue = SensorData.PowerValue*PowerVolCal/1000;                      
+    SensorData.PowerValue = (float)(SensorData.PowerValue/1000)*PowerVolCal;                 
     SensorData.WaterLevel = map(SensorData.WaterLevel,WaterLevelLow,WaterLevelHigh,0,100);
 
     SensorData.PumpSpeed  = pulseIn(PumpSpeedIO,HIGH);
