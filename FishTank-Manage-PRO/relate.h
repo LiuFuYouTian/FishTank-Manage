@@ -16,8 +16,13 @@
   #define AirPumpPWMIO  (uint8_t) 2
 
   #define PWM_Offset  (uint8_t) 50
-  #define Ligth_Offset  (uint8_t) 100
+  #define Ligth_Offset  (uint8_t) 500
+
   #define Water_Offset  (uint8_t) 70
+  #define Power_Offset  (uint8_t) 11
+  #define Pump_Offset  (uint8_t) 10
+  #define Temp_Up_Offset  (uint8_t) 32
+  #define Temp_Dow_Offset  (uint8_t) 10
 
 
 enum{
@@ -25,6 +30,15 @@ enum{
    AirPumpPWM_CH,
    LEDPWM_CH,
 };
+
+enum{
+   NoWarn = 0,
+   WarnWaterPumpUnusual,
+   WarnPowerDown,
+   WarnWaterLevelDown,
+   WarnWaterTempUnusual,
+};
+
 
   #define PumpSpeedIO   (uint8_t) 10
 
@@ -58,12 +72,15 @@ enum{
     float Ligth;
     float PumpSpeed;
     int FeedCount;
+    int WarnFlag;
   }SensorDataType;
 
   extern SensorDataType SensorData;
   extern ControlType Control;
   extern struct tm timeinfo;
   extern String FeedTimePoint;
+
+  extern uint8_t ClientState;
 
   void PostSensorData(void);
 #endif

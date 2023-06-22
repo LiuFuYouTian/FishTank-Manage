@@ -4,7 +4,7 @@
 const char* ssid     = "TP_LINK_DEV";
 const char* password = "t12345678g";
 
-struct
+struct 
 {
   const char* ip      = "183.230.40.33"; //欲访问的地址
   const uint8_t port  = 80;         //服务器端口号
@@ -12,6 +12,8 @@ struct
   const String ur2    = "http://api.heclouds.com/devices/599859039/datapoints?datastream_id=";//网址 设备ID
   const String apikey = "B88LcmiEOhetXDsS2OcrI6lYouc=";                                       //api-key
 }Server;
+
+uint8_t ClientState = true;//服务器连接状态
 
 WiFiClient client; //声明一个客户端对象，用于与服务器进行连接
 struct tm timeinfo;
@@ -137,6 +139,7 @@ String GetServerData(String datatype)
 
   if (client.connect(Server.ip, Server.port))//判断是否连接服务器
   {//连接成功
+    ClientState = true;
     post = String("GET ") + Server.ur2 + datatype + " HTTP/1.1\r\n" + "api-key: " + Server.apikey+ "\r\n" + "Host: api.heclouds.com\r\n\r\n";
 
     Serial.print(post);//串口打印HTTP请求
@@ -162,11 +165,13 @@ String GetServerData(String datatype)
   }
   else 
   {
+    ClientState = false;
     Serial.printf("Server no connect!\r\n");
   }
 
   SerialLock = false;
   Serial.println("At GetServerData SerialLock = false");
+  vTaskDelay(20);
   return RETURN;
 }
 
@@ -220,6 +225,7 @@ String PosServerData(String datatype)
                     "\r\n\r\n" + data;
       if (client.connect(Server.ip, Server.port))//判断是否连接服务器
       {//连接成功
+          ClientState = true;
           Serial.println(Length);
           Serial.print(post);//串口打印HTTP请求
           client.print(post);//向服务器发送HTTP请求
@@ -247,9 +253,11 @@ String PosServerData(String datatype)
       }
       else
       {
+        ClientState = false;
         Serial.printf("Server no connect!\r\n");
       }
   SerialLock = false;
   Serial.println("At PosServerData SerialLock = false");
+  vTaskDelay(20);
   return RETURN;
 }

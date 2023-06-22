@@ -9,7 +9,7 @@ TaskHandle_t _DeviceConnect;
 
 void setup() {
   // put your setup code here, to run once:
-  DeviceInit();
+  DeviceInit();           //控制设备初始化
   Serial.begin(115200);   //调试串口
 
   WIFInit();

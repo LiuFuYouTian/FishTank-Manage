@@ -31,10 +31,10 @@ void SensorInit(void)
   Serial.println();
 
 
-    SensorData.Temp       = 25;
-    SensorData.PowerValue = 12;
-    SensorData.WaterLevel = 90;
-    SensorData.PumpSpeed  = 300;
+  LastSensorData.Temp       = 25;
+  LastSensorData.PowerValue = 12;
+  LastSensorData.WaterLevel = 90;
+  LastSensorData.PumpSpeed  = 300;
 }
 
 float LowPsaa(float newdata,float lastdata)
@@ -99,6 +99,42 @@ void GetSensorData(void *pt)
     Serial.printf("SensorData.WaterLevelLP  = %f\r\n",SensorData.WaterLevel);
     Serial.printf("SensorData.PumpSpeed   = %f\r\n",SensorData.PumpSpeed);
     */
+    SensorData.WarnFlag = NoWarn;
+
+    if(SensorData.PumpSpeed <= Pump_Offset && Control.Water_Pump_Power != 0)//泵转速异常检测
+    {
+      SensorData.WarnFlag = WarnWaterPumpUnusual;
+    }
+
+    if(SensorData.PowerValue <= Power_Offset)//电源电压异常检测
+    {
+      SensorData.WarnFlag = WarnPowerDown;
+    }
+
+    if(SensorData.WaterLevel <= Water_Offset)//水位异常检测
+    {
+      SensorData.WarnFlag = WarnWaterLevelDown;
+    }
+
+    if(SensorData.WaterLevel <= Water_Offset)//水位异常检测
+    {
+      SensorData.WarnFlag = WarnWaterLevelDown;
+    }
+
+    if(SensorData.Temp >= Temp_Up_Offset || SensorData.Temp <= Temp_Dow_Offset)//水温异常检测
+    {
+      SensorData.WarnFlag = WarnWaterTempUnusual;
+    }
+
+    if(SensorData.WarnFlag != 0)//蜂鸣器报警
+    {
+        for(uint8_t i = 0;i <= 10;i++)
+        {
+          digitalWrite(BuzzIO, !digitalRead(BuzzIO));
+          vTaskDelay(10);
+        }
+        digitalWrite(BuzzIO, LOW);
+    }
 
     Serial.printf("\r\nGetSensorData End = %d\r\n",millis());
     vTaskDelay(1000);

@@ -12,15 +12,17 @@ void PostSensorData(void)
 {
     Serial.printf("\r\nPostSensorData Start = %d\r\n",millis());
 
-    String  Str  = PosDataLinkVal("Water_Temperature"     ,SensorData.Temp         ,false);
-            Str += PosDataLinkVal("Lingth_Intensity"      ,SensorData.Ligth        ,false);
-            Str += PosDataLinkVal("Power_Voltage"         ,SensorData.PowerValue   ,false);
-            Str += PosDataLinkVal("Water_level"           ,SensorData.WaterLevel   ,false);
-            Str += PosDataLinkVal("Water_Pump_Speed"      ,SensorData.PumpSpeed    ,false);
-            Str += PosDataLinkVal("millis"                ,millis()/1000/60        ,false);
-            Str += PosDataLinkVal("Feed_Count"            ,SensorData.FeedCount    ,false);
-            Str += PosDataLinkStr("FeedTimeStr"          ,FeedTimeStr              ,false);
-            Str += PosDataLinkStr("PumpTimeMaintainStr"  ,PumpTimeMaintainStr      ,true);
+    String  Str  = PosDataLinkVal("Water_Temperature"     ,SensorData.Temp              ,false);//水温上传
+            Str += PosDataLinkVal("Lingth_Intensity"      ,SensorData.Ligth             ,false);//光强上传
+            Str += PosDataLinkVal("Power_Voltage"         ,SensorData.PowerValue        ,false);//电源电压上传
+            Str += PosDataLinkVal("Water_level"           ,SensorData.WaterLevel        ,false);//水位上传上传
+            Str += PosDataLinkVal("Water_Pump_Speed"      ,SensorData.PumpSpeed         ,false);//水泵转速上传
+            Str += PosDataLinkVal("millis"                ,(float)millis()/1000/60/60   ,false);//开机时间上传
+            Str += PosDataLinkVal("Feed_Count"            ,SensorData.FeedCount         ,false);//喂食次数上传
+            Str += PosDataLinkVal("Warn_Flag"             ,SensorData.WarnFlag          ,false);//报警标记位上传
+
+            Str += PosDataLinkStr("FeedTimeStr"          ,FeedTimeStr                   ,false);//喂食时间设置上传
+            Str += PosDataLinkStr("PumpTimeMaintainStr"  ,PumpTimeMaintainStr           ,true); //泵维护时间设置上传
 
     PosServerData(Str);
     Serial.printf("\r\nPostSensorData End = %d\r\n",millis());
@@ -41,12 +43,12 @@ void GetServerOrder(void)
 {
     Serial.printf("\r\nGetServerOrder Start = %d\r\n",millis());
 
-    String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop,FeedTimePoint,PumpTimeMaintainPoint");
+    String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop,FeedTimePoint,PumpTimeMaintainPoint");//获取服务数据
     //String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop");
 
     //Serial.println("ServerData = " + ServerData);
 
-    if(String(ERROR) != ServerData)
+    if(String(ERROR) != ServerData)//解析服务器数据
     {
       Control.Water_Pump_Power  = GetServerDataValue("Water_Pump_Power",ServerData)/100*255;
       Control.Air_Pump_Power    = GetServerDataValue("Air_Pump_Power",ServerData)/100*255;
@@ -77,16 +79,16 @@ void NetConnect(void *pt)
 
     Serial.println("NetConnect");
     //Serial.println("Control.Feeding_Sign = flase");
-    if(WiFi.status() == WL_CONNECTED)
+    if(WiFi.status() == WL_CONNECTED)//判断当前网络连接状态
     {
       PostSensorData();
       GetServerOrder();
     }
-    else
+    
+   if(ClientState == false || WiFi.status() != WL_CONNECTED)//断网重连
     {
       WIFInit();
     }
-    vTaskDelay(20);
   }
 }
 
@@ -94,7 +96,7 @@ void DeviceInit(void)
 {
   Control.Water_Pump_Power = 255;
   Control.Air_Pump_Power = 255;
-  Control.LED_Power = 50;
+  Control.LED_Power = 0;
   Control.Feed_Switch = 0;
 
   pinMode(PumpPWMIO,OUTPUT);//指示LED控制GPIO
@@ -184,38 +186,9 @@ void DeviceConnect(void *pt)
 {
   while(1)
   {
-
-      if(Control.Water_Pump_Power <= PWM_Offset) Control.Water_Pump_Power = 0;
-      if(Control.LED_Power <= PWM_Offset) Control.LED_Power = 0;
-      if(Control.Air_Pump_Power <= PWM_Offset) Control.Air_Pump_Power = 0;
-/*    
-      if(Control.LED_Power == 0 && SensorData.Ligth <= Ligth_Offset)
-      {
-        Control.LED_Power = 255;
-      }
-
-      if(SensorData.WaterLevel <= Water_Offset && Control.Water_Pump_Power != 0)
-      {
-        Control.Water_Pump_Power = 0;
-        ledcWrite(PumpPWM_CH,0);
-      }
-*/
-      if(TimePointCheck(PumpTimeMaintainStr,true) == -1 && Control.Auto_StarAndStop == 0)
-      {
-        ledcWrite(PumpPWM_CH,Control.Water_Pump_Power);
-      }
-
-
-      ledcWrite(LEDPWM_CH,Control.LED_Power);
-      ledcWrite(AirPumpPWM_CH,Control.Air_Pump_Power);
-
-      if(Control.Feed_Switch != 0)
-      {
-        FeedDeviceConnect();
-      }
-
+      digitalWrite(StatLEDIO, !digitalRead(StatLEDIO));
       int Sum = Control.Water_Pump_Power + Control.LED_Power + Control.Air_Pump_Power + Control.Feed_Switch + Control.Auto_StarAndStop + SensorData.FeedCount;
-      if(Sum != Control.Order_Sum)
+      if(Sum != Control.Order_Sum)//判断是否有指令更新
       {
         Control.Order_Sum = Sum;
         for(uint8_t i = 0;i <= 6;i++)
@@ -227,9 +200,37 @@ void DeviceConnect(void *pt)
       }
       else
       {
-        vTaskDelay(50);
+        vTaskDelay(300);
       }
-      digitalWrite(StatLEDIO, !digitalRead(StatLEDIO));
+
+
+      if(Control.Water_Pump_Power <= PWM_Offset) Control.Water_Pump_Power = 0;
+      if(Control.LED_Power <= PWM_Offset) Control.LED_Power = 0;
+      if(Control.Air_Pump_Power <= PWM_Offset) Control.Air_Pump_Power = 0;
+   
+      if(Control.LED_Power == 0 && SensorData.Ligth <= Ligth_Offset && !(timeinfo.tm_hour >= 2 && timeinfo.tm_hour <= 7))//LED灯自动控制:LED未手动开启、光强小于Ligth_Offset，时间不在2点到7点的范围
+      {
+        Control.LED_Power = 255;
+      }
+
+      if(SensorData.WaterLevel <= Water_Offset)//水位异常后强制关闭水泵
+      {
+        Control.Water_Pump_Power = 0;
+      }
+
+      if(TimePointCheck(PumpTimeMaintainStr,true) == -1 && Control.Auto_StarAndStop == 0)//非自动维护状态下按服务设置，设置泵PWM
+      {
+        ledcWrite(PumpPWM_CH,Control.Water_Pump_Power);
+      }
+
+
+      ledcWrite(LEDPWM_CH,Control.LED_Power);
+      ledcWrite(AirPumpPWM_CH,Control.Air_Pump_Power);
+
+      if(Control.Feed_Switch != 0)//手动喂食
+      {
+        FeedDeviceConnect();
+      }
   }
 }
 
