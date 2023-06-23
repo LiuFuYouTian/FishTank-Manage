@@ -2,7 +2,7 @@
 
 #define BH1750address  (uint8_t)0x23
 
-#define LPFParameter 0.3
+#define LPFParameter 0.1
 
 DS18B20 ds(DS18B20IO);
 BH1750 lightMeter;
@@ -101,7 +101,7 @@ void GetSensorData(void *pt)
     */
     SensorData.WarnFlag = NoWarn;
 
-    if(SensorData.PumpSpeed <= Pump_Offset && Control.Water_Pump_Power != 0)//泵转速异常检测
+    if(SensorData.PumpSpeed <= Pump_Offset && Control.Water_Pump_Power != 0 && TimePointCheck(PumpTimeMaintainStr,true) == -1 && Control.Auto_StarAndStop == 0)//泵转速异常检测
     {
       SensorData.WarnFlag = WarnWaterPumpUnusual;
     }
@@ -109,11 +109,6 @@ void GetSensorData(void *pt)
     if(SensorData.PowerValue <= Power_Offset)//电源电压异常检测
     {
       SensorData.WarnFlag = WarnPowerDown;
-    }
-
-    if(SensorData.WaterLevel <= Water_Offset)//水位异常检测
-    {
-      SensorData.WarnFlag = WarnWaterLevelDown;
     }
 
     if(SensorData.WaterLevel <= Water_Offset)//水位异常检测
@@ -131,7 +126,7 @@ void GetSensorData(void *pt)
         for(uint8_t i = 0;i <= 10;i++)
         {
           digitalWrite(BuzzIO, !digitalRead(BuzzIO));
-          vTaskDelay(10);
+          vTaskDelay(20);
         }
         digitalWrite(BuzzIO, LOW);
     }

@@ -60,11 +60,11 @@ void GetServerOrder(void)
       PumpTimeMaintainStr   = GetServerDataString("PumpTimeMaintainPoint",ServerData);
     }
 
-    Serial.printf("Control.Water_Pump_Power = %d\r\n" ,Control.Water_Pump_Power);
-    Serial.printf("Control.Air_Pump_Power   = %d\r\n" ,Control.Air_Pump_Power);
-    Serial.printf("Control.LED_Power        = %d\r\n" ,Control.LED_Power);
-    Serial.printf("Control.Feed_Switch      = %d\r\n" ,Control.Feed_Switch);
-    Serial.printf("Control.Auto_StarAndStop = %d\r\n" ,Control.Auto_StarAndStop);
+    Serial.printf("Control.Water_Pump_Power = %f\r\n" ,Control.Water_Pump_Power);
+    Serial.printf("Control.Air_Pump_Power   = %f\r\n" ,Control.Air_Pump_Power);
+    Serial.printf("Control.LED_Power        = %f\r\n" ,Control.LED_Power);
+    Serial.printf("Control.Feed_Switch      = %f\r\n" ,Control.Feed_Switch);
+    Serial.printf("Control.Auto_StarAndStop = %f\r\n" ,Control.Auto_StarAndStop);
 
     Serial.println(FeedTimeStr);
     Serial.println(PumpTimeMaintainStr);
@@ -203,14 +203,21 @@ void DeviceConnect(void *pt)
         vTaskDelay(300);
       }
 
-
       if(Control.Water_Pump_Power <= PWM_Offset) Control.Water_Pump_Power = 0;
-      if(Control.LED_Power <= PWM_Offset) Control.LED_Power = 0;
+      if(Control.LED_Power <= PWM_Offset && Control.LED_Power >= 0) Control.LED_Power = 0;
       if(Control.Air_Pump_Power <= PWM_Offset) Control.Air_Pump_Power = 0;
-   
-      if(Control.LED_Power == 0 && SensorData.Ligth <= Ligth_Offset && !(timeinfo.tm_hour >= 2 && timeinfo.tm_hour <= 7))//LED灯自动控制:LED未手动开启、光强小于Ligth_Offset，时间不在2点到7点的范围
+
+      if(Control.LED_Power < 0)
       {
-        Control.LED_Power = 255;
+          ledcWrite(LEDPWM_CH,0);
+      }
+      else if(Control.LED_Power == 0 && SensorData.Ligth <= Ligth_Offset && !(timeinfo.tm_hour >= 2 && timeinfo.tm_hour <= 7))//LED灯自动控制:LED未手动开启、光强小于Ligth_Offset，时间不在2点到7点的范围
+      {
+          ledcWrite(LEDPWM_CH,255);
+      }
+      else
+      {
+          ledcWrite(LEDPWM_CH,Control.LED_Power);
       }
 
       if(SensorData.WaterLevel <= Water_Offset)//水位异常后强制关闭水泵
@@ -223,8 +230,6 @@ void DeviceConnect(void *pt)
         ledcWrite(PumpPWM_CH,Control.Water_Pump_Power);
       }
 
-
-      ledcWrite(LEDPWM_CH,Control.LED_Power);
       ledcWrite(AirPumpPWM_CH,Control.Air_Pump_Power);
 
       if(Control.Feed_Switch != 0)//手动喂食

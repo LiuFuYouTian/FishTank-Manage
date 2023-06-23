@@ -48,7 +48,7 @@ float GetServerDataValue(String datatype,String data)
     {
       length ++;
       DatavalueStrReverse += data[place--];
-    }while(data[place] != ':' || data[place] == '-' && place >= 0);
+    }while((data[place] != ':' || data[place] == '-') && place >= 0);
 
     //Serial.println(DatavalueStrReverse);
 
@@ -58,7 +58,7 @@ float GetServerDataValue(String datatype,String data)
       DatavalueStr += DatavalueStrReverse[length];
     }while(length);
 
-    //Serial.println(DatavalueStr);
+    Serial.println(DatavalueStr.toFloat());
 
     datavalue = DatavalueStr.toFloat();
   } 

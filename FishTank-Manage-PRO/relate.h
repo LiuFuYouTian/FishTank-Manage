@@ -56,12 +56,12 @@ enum{
 
   typedef struct
   {
-    uint8_t Water_Pump_Power;
-    uint8_t Air_Pump_Power;
-    uint8_t LED_Power;
-    uint8_t Feed_Switch;
-    uint8_t Auto_StarAndStop;
-    uint16_t Order_Sum;
+    int16_t Water_Pump_Power;
+    int16_t Air_Pump_Power;
+    int16_t LED_Power;
+    int16_t Feed_Switch;
+    int16_t Auto_StarAndStop;
+    int16_t Order_Sum;
   }ControlType;
 
   typedef struct
