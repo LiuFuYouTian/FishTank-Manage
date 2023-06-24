@@ -19,7 +19,7 @@ void setup() {
   xTaskCreate(NetConnect,"NetConnect",2048,NULL,5,&_NetConnect);
 
   xTaskCreate(DeviceConnect,"DeviceConnect",2048,NULL,3,&_DeviceConnect);
-  xTaskCreate(FeedConnect,"FeedConnect",2048,NULL,6,NULL);
+  xTaskCreate(FeedConnect,"FeedConnect",2048,NULL,20,NULL);
 }
 
 void loop() {

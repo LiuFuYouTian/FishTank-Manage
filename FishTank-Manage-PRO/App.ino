@@ -1,7 +1,7 @@
 #include"relate.h"
 
 ControlType Control;
-#define FeedCheckDelay (uint32_t) 1000*35
+#define FeedCheckDelay (uint32_t) 1000*20
 #define FeedMotorDelay (uint32_t) 1000*1
 
 //String FeedTimeStr = "06:00,10:00,14:00,18:00,22:15,02.00";
@@ -20,6 +20,7 @@ void PostSensorData(void)
             Str += PosDataLinkVal("millis"                ,(float)millis()/1000/60/60   ,false);//开机时间上传
             Str += PosDataLinkVal("Feed_Count"            ,SensorData.FeedCount         ,false);//喂食次数上传
             Str += PosDataLinkVal("Warn_Flag"             ,SensorData.WarnFlag          ,false);//报警标记位上传
+            Str += PosDataLinkVal("Auto_LED"             ,  Control.Auto_LED            ,false);//自动LED控制标记位上传
 
             Str += PosDataLinkStr("FeedTimeStr"          ,FeedTimeStr                   ,false);//喂食时间设置上传
             Str += PosDataLinkStr("PumpTimeMaintainStr"  ,PumpTimeMaintainStr           ,true); //泵维护时间设置上传
@@ -60,11 +61,11 @@ void GetServerOrder(void)
       PumpTimeMaintainStr   = GetServerDataString("PumpTimeMaintainPoint",ServerData);
     }
 
-    Serial.printf("Control.Water_Pump_Power = %f\r\n" ,Control.Water_Pump_Power);
-    Serial.printf("Control.Air_Pump_Power   = %f\r\n" ,Control.Air_Pump_Power);
-    Serial.printf("Control.LED_Power        = %f\r\n" ,Control.LED_Power);
-    Serial.printf("Control.Feed_Switch      = %f\r\n" ,Control.Feed_Switch);
-    Serial.printf("Control.Auto_StarAndStop = %f\r\n" ,Control.Auto_StarAndStop);
+    Serial.printf("Control.Water_Pump_Power = %d\r\n" ,Control.Water_Pump_Power);
+    Serial.printf("Control.Air_Pump_Power   = %d\r\n" ,Control.Air_Pump_Power);
+    Serial.printf("Control.LED_Power        = %d\r\n" ,Control.LED_Power);
+    Serial.printf("Control.Feed_Switch      = %d\r\n" ,Control.Feed_Switch);
+    Serial.printf("Control.Auto_StarAndStop = %d\r\n" ,Control.Auto_StarAndStop);
 
     Serial.println(FeedTimeStr);
     Serial.println(PumpTimeMaintainStr);
@@ -97,7 +98,8 @@ void DeviceInit(void)
   Control.Water_Pump_Power = 255;
   Control.Air_Pump_Power = 255;
   Control.LED_Power = 0;
-  Control.Feed_Switch = 0;
+  Control.Feed_Switch = false;
+  Control.Auto_LED = false;
 
   pinMode(PumpPWMIO,OUTPUT);//指示LED控制GPIO
   ledcSetup(PumpPWM_CH, 5000, 8); // 设置通道
@@ -187,7 +189,7 @@ void DeviceConnect(void *pt)
   while(1)
   {
       digitalWrite(StatLEDIO, !digitalRead(StatLEDIO));
-      int Sum = Control.Water_Pump_Power + Control.LED_Power + Control.Air_Pump_Power + Control.Feed_Switch + Control.Auto_StarAndStop + SensorData.FeedCount;
+      int Sum = Control.Water_Pump_Power + Control.LED_Power + Control.Air_Pump_Power + Control.Feed_Switch + Control.Auto_StarAndStop + SensorData.FeedCount + Control.Auto_LED;
       if(Sum != Control.Order_Sum)//判断是否有指令更新
       {
         Control.Order_Sum = Sum;
@@ -209,14 +211,17 @@ void DeviceConnect(void *pt)
 
       if(Control.LED_Power < 0)
       {
+          Control.Auto_LED = false;
           ledcWrite(LEDPWM_CH,0);
       }
       else if(Control.LED_Power == 0 && SensorData.Ligth <= Ligth_Offset && !(timeinfo.tm_hour >= 2 && timeinfo.tm_hour <= 7))//LED灯自动控制:LED未手动开启、光强小于Ligth_Offset，时间不在2点到7点的范围
       {
+          Control.Auto_LED = true;
           ledcWrite(LEDPWM_CH,255);
       }
       else
       {
+          Control.Auto_LED = false;
           ledcWrite(LEDPWM_CH,Control.LED_Power);
       }
 
@@ -248,6 +253,7 @@ void FeedConnect(void *pt)
     if(TimePointCheck(FeedTimeStr,false) != -1 || Control.Feed_Switch != 0)
     {
         FeedDeviceConnect();
+        vTaskDelay(1000*40);//自动喂食后强制等40s避免喂食两次
     }
 
     if(TimePointCheck(PumpTimeMaintainStr,true) != -1 || Control.Auto_StarAndStop == 1)

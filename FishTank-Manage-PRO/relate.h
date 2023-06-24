@@ -16,13 +16,14 @@
   #define AirPumpPWMIO  (uint8_t) 2
 
   #define PWM_Offset  (uint8_t) 50
-  #define Ligth_Offset  (uint8_t) 500
+  #define Ligth_Offset  (float) 300.00
 
-  #define Water_Offset  (uint8_t) 70
-  #define Power_Offset  (uint8_t) 11
-  #define Pump_Offset  (uint8_t) 10
-  #define Temp_Up_Offset  (uint8_t) 32
-  #define Temp_Dow_Offset  (uint8_t) 10
+  #define Water_Offset  (float) 70.00
+  #define Power_Offset  (float) 11.00
+
+  #define Pump_Offset  (float) 10.00
+  #define Temp_Up_Offset  (float) 32.00
+  #define Temp_Dow_Offset  (float) 10.00
 
 
 enum{
@@ -61,6 +62,7 @@ enum{
     int16_t LED_Power;
     int16_t Feed_Switch;
     int16_t Auto_StarAndStop;
+    int16_t Auto_LED;
     int16_t Order_Sum;
   }ControlType;
 
