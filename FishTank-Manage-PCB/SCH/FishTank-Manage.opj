@@ -1,12 +1,12 @@
 (ExpressProject "FishTank-Manage"
   (ProjectVersion "19981106")
-  (SoftwareVersion "17.4-2019 S032 (4052516)  [8/29/2022]-[06/04/23]")
+  (SoftwareVersion "17.4-2019 S032 (4052516)  [8/29/2022]-[07/03/23]")
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library"
       (File ".\library1.olb"
         (Type "Schematic Library")))
-    ("Allegro Netlist Directory" "allegro")
+    ("Allegro Netlist Directory" "D:\PCBDesign\FishTank-Manage\SCH\net")
     (DOCKED "TRUE")
     (DOCKING_POSITION "59420")
     (NoModify)
@@ -87,7 +87,16 @@
     ("Allegro Setup Part Type Length" "255")
     ("Allegro Netlist Combine Property String" "PCB Footprint")
     ("Allegro Netlist Ignore Fixed Property" "FALSE")
-    ("Allegro Netlist User Defined Property" "FALSE"))
+    ("Allegro Netlist User Defined Property" "FALSE")
+    (CrossRef_Scope "0")
+    (Crossref__Mode "0")
+    (CrossRef_Sorting "0")
+    (CrossRef_Destination_File
+       "C:\USERS\A1833\ONEDRIVE\文档\ARDUINO\FISHTANK-MANAGE\FISHTANK-MANAGE-PCB\SCH\FISHTANK-MANAGE.XRF")
+    (Crossref__Outputtype "0")
+    (CrossRef_XY "FALSE")
+    (CrossRef_Unused "FALSE")
+    (XRF_View_Output "FALSE"))
   (Folder "Layout")
   (Folder "Outputs"
     (File "c:\users\a1833\onedrive\桌面\新建 文本文档.txt"
@@ -102,6 +111,17 @@
       (DisplayName "pstxprt.dat"))
     (File ".\allegro\pstchip.dat"
       (Type "Report")
+      (DisplayName "pstchip.dat"))
+    (File ".\fishtank-manage.xrf"
+      (Type "Report"))
+    (File "d:\pcbdesign\fishtank-manage\sch\net\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File "d:\pcbdesign\fishtank-manage\sch\net\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File "d:\pcbdesign\fishtank-manage\sch\net\pstchip.dat"
+      (Type "Report")
       (DisplayName "pstchip.dat")))
   (Folder "Referenced Projects")
   (Folder "PSpice Resources"
@@ -114,6 +134,11 @@
       (Sort User)))
   (Folder "Logs")
   (PartMRUSelector
+    (XL6007
+      (FullPartName "XL6007.Normal")
+      (LibraryName
+         "C:\USERS\A1833\ONEDRIVE\文档\ARDUINO\FISHTANK-MANAGE\FISHTANK-MANAGE-PCB\SCH\LIBRARY1.OLB")
+      (DeviceIndex "0"))
     (Button
       (FullPartName "Button.Normal")
       (LibraryName "D:\DOCUMENTS\PCBDESIGN\FISHTANK-MANAGE\SCH\LIBRARY1.OLB")
@@ -190,21 +215,24 @@
       (Path "Design Resources")
       (Path "Design Resources" ".\fishtank-manage.dsn")
       (Path "Design Resources" ".\fishtank-manage.dsn" "SCHEMATIC1")
-      (Select "Design Resources" ".\fishtank-manage.dsn" "SCHEMATIC1" "PAGE1"))
+      (Path "Design Resources" "Library")
+      (Path "Outputs")
+      (Select "Design Resources" ".\fishtank-manage.dsn"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 646"))
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 967"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 5 28 5 1217 28 668")
-        (Scroll "1406 241")
-        (Zoom "248")
+        (Placement "44 0 1 -1 -1 5 28 5 1784 28 989")
+        (Scroll "667 0")
+        (Zoom "120")
         (Occurrence "/"))
-      (Path "D:\PCBDESIGN\FISHTANK-MANAGE\SCH\FISHTANK-MANAGE.DSN")
+      (Path
+         "C:\USERS\A1833\ONEDRIVE\文档\ARDUINO\FISHTANK-MANAGE\FISHTANK-MANAGE-PCB\SCH\FISHTANK-MANAGE.DSN")
       (Schematic "SCHEMATIC1")
       (Page "PAGE1")))
   (LastUsedLibraryBrowseDirectory
