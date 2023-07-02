@@ -64,7 +64,7 @@ void GetSensorData(void *pt)
     SensorData.WaterLevel = map(SensorData.WaterLevel,WaterLevelLow,WaterLevelHigh,0,100);
 
     SensorData.PumpSpeed  = pulseIn(PumpSpeedIO,HIGH);
-    if(SensorData.PumpSpeed != 0)
+    if(SensorData.PumpSpeed >= 2500)
     {
       SensorData.PumpSpeed = (float)1000000/SensorData.PumpSpeed;
     }

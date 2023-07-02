@@ -22,7 +22,7 @@
   #define Power_Offset  (float) 11.00
 
   #define Pump_Offset  (float) 10.00
-  #define Temp_Up_Offset  (float) 32.00
+  #define Temp_Up_Offset  (float) 35.00
   #define Temp_Dow_Offset  (float) 10.00
 
 
@@ -46,7 +46,7 @@ enum{
   #define WaterLevelADC (uint8_t) 0
   #define Power12VADC   (uint8_t) 3
   #define PowerVolCal   (float) 7.8
-  #define WaterLevelHigh     (float) 2200
+  #define WaterLevelHigh     (float) 1900
   #define WaterLevelLow      (float) 400
 
   #define DS18B20IO   (uint8_t) 1
@@ -64,6 +64,7 @@ enum{
     int16_t Auto_StarAndStop;
     int16_t Auto_LED;
     int16_t Order_Sum;
+    int16_t LightDownCount;
   }ControlType;
 
   typedef struct

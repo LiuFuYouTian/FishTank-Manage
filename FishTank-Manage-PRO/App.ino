@@ -100,6 +100,7 @@ void DeviceInit(void)
   Control.LED_Power = 0;
   Control.Feed_Switch = false;
   Control.Auto_LED = false;
+  Control.LightDownCount = 0;
 
   pinMode(PumpPWMIO,OUTPUT);//指示LED控制GPIO
   ledcSetup(PumpPWM_CH, 5000, 8); // 设置通道
@@ -184,6 +185,8 @@ int TimePointCheck(String str ,uint8_t IsHour)
   return str.indexOf(current);
 }
 
+
+
 void DeviceConnect(void *pt)
 {
   while(1)
@@ -205,32 +208,49 @@ void DeviceConnect(void *pt)
         vTaskDelay(300);
       }
 
-      if(Control.Water_Pump_Power <= PWM_Offset) Control.Water_Pump_Power = 0;
-      if(Control.LED_Power <= PWM_Offset && Control.LED_Power >= 0) Control.LED_Power = 0;
+      if(Control.Water_Pump_Power <= PWM_Offset && Control.Water_Pump_Power > 0) Control.Water_Pump_Power = 0;
+      if(Control.LED_Power <= PWM_Offset && Control.LED_Power > 0) Control.LED_Power = 0;
       if(Control.Air_Pump_Power <= PWM_Offset) Control.Air_Pump_Power = 0;
 
       if(Control.LED_Power < 0)
       {
+          Control.LightDownCount = 0;
           Control.Auto_LED = false;
           ledcWrite(LEDPWM_CH,0);
       }
       else if(Control.LED_Power == 0 && SensorData.Ligth <= Ligth_Offset && !(timeinfo.tm_hour >= 2 && timeinfo.tm_hour <= 7))//LED灯自动控制:LED未手动开启、光强小于Ligth_Offset，时间不在2点到7点的范围
       {
-          Control.Auto_LED = true;
-          ledcWrite(LEDPWM_CH,255);
+          if(Control.LightDownCount++ >= 100)//光强连续低于阈值保持30s后才自动开启LED
+          {
+            Control.LightDownCount = 100;
+            Control.Auto_LED = true;
+            ledcWrite(LEDPWM_CH,255);
+          }
+          else 
+          {
+            Control.Auto_LED = false;
+            ledcWrite(LEDPWM_CH,Control.LED_Power);
+          }
       }
       else
       {
+          Control.LightDownCount = 0;
           Control.Auto_LED = false;
           ledcWrite(LEDPWM_CH,Control.LED_Power);
       }
 
-      if(SensorData.WaterLevel <= Water_Offset)//水位异常后强制关闭水泵
+      if(Control.Water_Pump_Power < 0)//强制开启水泵
       {
+        ledcWrite(PumpPWM_CH,255);
+      }
+      else if(SensorData.WaterLevel <= Water_Offset)//没有强制开启水泵且水位异常后强制关闭水泵
+      {
+        Serial.println("Control.Water_Pump_Power = 0;");
         Control.Water_Pump_Power = 0;
       }
 
-      if(TimePointCheck(PumpTimeMaintainStr,true) == -1 && Control.Auto_StarAndStop == 0)//非自动维护状态下按服务设置，设置泵PWM
+
+      if(TimePointCheck(PumpTimeMaintainStr,true) == -1 && Control.Auto_StarAndStop == 0 && Control.Water_Pump_Power >= 0)//非自动维护状态下按服务设置，设置泵PWM
       {
         ledcWrite(PumpPWM_CH,Control.Water_Pump_Power);
       }
