@@ -220,7 +220,7 @@ void DeviceConnect(void *pt)
       }
       else if(Control.LED_Power == 0 && SensorData.Ligth <= Ligth_Offset && !(timeinfo.tm_hour >= 2 && timeinfo.tm_hour <= 7))//LED灯自动控制:LED未手动开启、光强小于Ligth_Offset，时间不在2点到7点的范围
       {
-          if(Control.LightDownCount++ >= 100)//光强连续低于阈值保持30s后才自动开启LED
+          if(Control.LightDownCount++ >= 2000)//光强连续低于阈值保600s后才自动开启LED
           {
             Control.LightDownCount = 100;
             Control.Auto_LED = true;

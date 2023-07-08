@@ -1,0 +1,96 @@
+\t (00:00:08) allegro 17.4 S032 Windows SPB 64-bit Edition
+\t (00:00:08)     Journal start - Sat Jul  8 23:53:41 2023
+\t (00:00:08)         Host=YOUTIAN User=You Pid=24524 CPUs=20
+\t (00:00:08) CmdLine= c:\program files\cadence\spb_17.4\tools\bin\allegro.exe C:\Users\a1833\OneDrive\ÎÄµµ\Arduino\FishTank-Manage\FishTank-Manage-PCB\PCB\FishTank-Manage.brd
+\t (00:00:08) 
+   (00:00:08) Loading axlcore.cxt 
+\t (00:00:08) Opening existing design...
+\i (00:00:09) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged "FishTank-Manage"
+\d (00:00:09) Design opened: C:/Users/a1833/OneDrive/ÎÄµµ/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/FishTank-Manage.brd
+\i (00:00:09) trapsize 3173
+\i (00:00:09) trapsize 3222
+\i (00:00:09) trapsize 3340
+\i (00:00:09) trapsize 3403
+\i (00:00:09) generaledit 
+\i (00:00:13) QtSignal ColorVisibilityPane CVPViewDropdown CurrentIndexChanged "Film: ADB"
+\i (00:00:13) QtSignal ColorVisibilityPane CVPViewDropdown activated "Film: ADB"
+\i (00:00:13) zoom in 1 
+\i (00:00:13) setwindow pcb
+\i (00:00:13) zoom in -0.9498 48.6741
+\i (00:00:13) trapsize 1702
+\i (00:00:13) zoom in 1 
+\i (00:00:13) setwindow pcb
+\i (00:00:13) zoom in -0.9499 48.6741
+\i (00:00:13) trapsize 851
+\i (00:00:14) zoom in 1 
+\i (00:00:14) setwindow pcb
+\i (00:00:14) zoom in -0.9500 48.6742
+\i (00:00:14) trapsize 425
+\i (00:00:14) zoom out 1 
+\i (00:00:14) setwindow pcb
+\i (00:00:14) zoom out 0.3858 47.4320
+\i (00:00:14) trapsize 851
+\i (00:00:14) zoom out 1 
+\i (00:00:14) setwindow pcb
+\i (00:00:14) zoom out 0.3859 47.4320
+\i (00:00:14) trapsize 1702
+\i (00:00:14) zoom out 1 
+\i (00:00:14) setwindow pcb
+\i (00:00:14) zoom out 0.8623 48.0787
+\i (00:00:14) trapsize 3403
+\i (00:00:23) zoom in 1 
+\i (00:00:23) setwindow pcb
+\i (00:00:23) zoom in 34.9628 43.7225
+\i (00:00:23) trapsize 1702
+\i (00:00:23) zoom in 1 
+\i (00:00:23) setwindow pcb
+\i (00:00:23) zoom in 34.9628 43.6885
+\i (00:00:23) trapsize 851
+\i (00:00:23) zoom in 1 
+\i (00:00:23) setwindow pcb
+\i (00:00:23) zoom in 34.9628 43.6885
+\i (00:00:23) trapsize 425
+\i (00:00:23) zoom in 1 
+\i (00:00:23) setwindow pcb
+\i (00:00:23) zoom in 34.9543 43.6205
+\i (00:00:23) trapsize 213
+\i (00:00:24) zoom out 1 
+\i (00:00:24) setwindow pcb
+\i (00:00:24) zoom out 35.0776 43.4546
+\i (00:00:24) trapsize 425
+\i (00:00:26) setwindow form.find
+\i (00:00:26) FORM find all_off  
+\i (00:00:27) FORM find symbols YES 
+\i (00:22:32) setwindow pcb
+\i (00:22:32) zoom out 1 
+\i (00:22:32) setwindow pcb
+\i (00:22:32) zoom out 34.1163 44.4159
+\i (00:22:32) trapsize 851
+\i (00:22:33) zoom out 1 
+\i (00:22:33) setwindow pcb
+\i (00:22:33) zoom out 34.5416 43.5482
+\i (00:22:33) trapsize 1702
+\i (00:22:33) zoom out 1 
+\i (00:22:33) setwindow pcb
+\i (00:22:33) zoom out 34.5415 43.5481
+\i (00:22:33) trapsize 3403
+\i (00:22:33) zoom in 1 
+\i (00:22:33) setwindow pcb
+\i (00:22:33) zoom in 21.6093 43.1398
+\i (00:22:33) trapsize 1702
+\i (00:22:33) zoom in 1 
+\i (00:22:33) setwindow pcb
+\i (00:22:33) zoom in 21.5753 43.1399
+\i (00:22:33) trapsize 851
+\i (00:22:33) zoom in 1 
+\i (00:22:33) setwindow pcb
+\i (00:22:33) zoom in 21.5072 43.1399
+\i (00:22:33) trapsize 425
+\i (00:22:34) zoom in 1 
+\i (00:22:34) setwindow pcb
+\i (00:22:34) zoom in 21.4902 43.1399
+\i (00:22:34) trapsize 213
+\i (00:23:45) exit 
+\e (00:23:45) Do you want to save the changes you made to FishTank-Manage.brd?
+\i (00:23:49) fillin no 
+\t (00:23:49)     Journal end - Sun Jul  9 00:17:22 2023

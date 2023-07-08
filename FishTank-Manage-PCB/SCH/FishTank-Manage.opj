@@ -228,8 +228,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 5 28 5 1784 28 989")
-        (Scroll "667 0")
-        (Zoom "120")
+        (Scroll "-267 -8")
+        (Zoom "60")
         (Occurrence "/"))
       (Path
          "C:\USERS\A1833\ONEDRIVE\ÎÄµµ\ARDUINO\FISHTANK-MANAGE\FISHTANK-MANAGE-PCB\SCH\FISHTANK-MANAGE.DSN")
