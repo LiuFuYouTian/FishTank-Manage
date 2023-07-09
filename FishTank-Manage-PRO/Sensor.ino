@@ -17,7 +17,8 @@ void SensorInit(void)
 
   analogReadResolution(12);     //ADC设置为12bit
   pinMode(WaterLevelADC,INPUT); //水位电压检测
-  pinMode(Power12VADC,INPUT);   //12V电压检测  
+  pinMode(PowerIn12VADC,INPUT);   //12V输入电压检测
+  pinMode(PowerUp12VADC,INPUT);   //12V升压电压检测
 
   pinMode(PumpSpeedIO,INPUT);  //水泵转速检测
   pinMode(FeedResetIO,INPUT);  //水泵转速检测
@@ -31,10 +32,11 @@ void SensorInit(void)
   Serial.println();
 
 
-  LastSensorData.Temp       = 25;
-  LastSensorData.PowerValue = 12;
-  LastSensorData.WaterLevel = 90;
-  LastSensorData.PumpSpeed  = 300;
+  LastSensorData.Temp         = 25;
+  LastSensorData.PowerInValue = 12;
+  LastSensorData.PowerUpValue = 12;
+  LastSensorData.WaterLevel   = 90;
+  LastSensorData.PumpSpeed    = 300;
 }
 
 float LowPsaa(float newdata,float lastdata)
@@ -53,20 +55,26 @@ void GetSensorData(void *pt)
     SensorData.Temp       = ds.getTempC();
     SensorData.Ligth      = lightMeter.readLightLevel();
 
-    SensorData.PowerValue = analogReadMilliVolts(Power12VADC);     //读取12V电源电压
-    SensorData.WaterLevel = analogReadMilliVolts(WaterLevelADC);        //读取水位监测ADC电压
+    SensorData.PowerInValue = analogReadMilliVolts(PowerIn12VADC);     //读取输入12V电源电压
+    SensorData.PowerUpValue = analogReadMilliVolts(PowerUp12VADC);     //读取升压12V电源电压
+    SensorData.WaterLevel = analogReadMilliVolts(WaterLevelADC);       //读取水位监测ADC电压
 
 
     //Serial.printf("SensorData.PowerValueADC  = %fmV\r\n",SensorData.PowerValue);
     //Serial.printf("SensorData.WaterLevelADC  = %fmV\r\n",SensorData.WaterLevel);
 
-    SensorData.PowerValue = (float)(SensorData.PowerValue/1000)*PowerVolCal;                 
+    SensorData.PowerInValue = (float)(SensorData.PowerInValue/1000)*PowerVolCal;
+    SensorData.PowerUpValue = (float)(SensorData.PowerUpValue/1000)*PowerVolCal;            
     SensorData.WaterLevel = map(SensorData.WaterLevel,WaterLevelLow,WaterLevelHigh,0,100);
 
     SensorData.PumpSpeed  = pulseIn(PumpSpeedIO,HIGH);
-    if(SensorData.PumpSpeed >= 2500)
+    if(SensorData.PumpSpeed >= 500)
     {
       SensorData.PumpSpeed = (float)1000000/SensorData.PumpSpeed;
+    }
+    else
+    {
+      SensorData.PumpSpeed = LastSensorData.PumpSpeed;
     }
 
     /*
@@ -83,8 +91,11 @@ void GetSensorData(void *pt)
     SensorData.Ligth = LowPsaa(SensorData.Ligth,LastSensorData.Ligth);
     LastSensorData.Ligth = SensorData.Ligth;
 
-    SensorData.PowerValue = LowPsaa(SensorData.PowerValue,LastSensorData.PowerValue);
-    LastSensorData.PowerValue = SensorData.PowerValue;
+    SensorData.PowerInValue = LowPsaa(SensorData.PowerInValue,LastSensorData.PowerInValue);
+    LastSensorData.PowerInValue = SensorData.PowerInValue;
+
+    SensorData.PowerUpValue = LowPsaa(SensorData.PowerUpValue,LastSensorData.PowerUpValue);
+    LastSensorData.PowerUpValue = SensorData.PowerUpValue;
 
     SensorData.WaterLevel = LowPsaa(SensorData.WaterLevel,LastSensorData.WaterLevel);
     LastSensorData.WaterLevel = SensorData.WaterLevel;
@@ -106,7 +117,7 @@ void GetSensorData(void *pt)
       SensorData.WarnFlag = WarnWaterPumpUnusual;
     }
 
-    if(SensorData.PowerValue <= Power_Offset)//电源电压异常检测
+    if(SensorData.PowerInValue <= Power_Offset || SensorData.PowerUpValue <= Power_Offset)//电源电压异常检测
     {
       SensorData.WarnFlag = WarnPowerDown;
     }

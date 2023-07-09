@@ -13,13 +13,13 @@
 
   #define PumpPWMIO     (uint8_t) 6
   #define LEDPWMIO      (uint8_t) 7
-  #define AirPumpPWMIO  (uint8_t) 2
+  #define AirPumpPWMIO  (uint8_t) 8
 
   #define PWM_Offset  (uint8_t) 50
   #define Ligth_Offset  (float) 300.00
 
   #define Water_Offset  (float) 70.00
-  #define Power_Offset  (float) 11.00
+  #define Power_Offset  (float) 9.50
 
   #define Pump_Offset  (float) 10.00
   #define Temp_Up_Offset  (float) 35.00
@@ -44,7 +44,9 @@ enum{
   #define PumpSpeedIO   (uint8_t) 10
 
   #define WaterLevelADC (uint8_t) 0
-  #define Power12VADC   (uint8_t) 3
+  #define PowerIn12VADC   (uint8_t) 3
+  #define PowerUp12VADC   (uint8_t) 2
+
   #define PowerVolCal   (float) 7.8
   #define WaterLevelHigh     (float) 1900
   #define WaterLevelLow      (float) 400
@@ -70,7 +72,8 @@ enum{
   typedef struct
   {
     float Temp;
-    float PowerValue;
+    float PowerInValue;
+    float PowerUpValue;
     float WaterLevel;
     float Ligth;
     float PumpSpeed;

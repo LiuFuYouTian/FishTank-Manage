@@ -14,7 +14,8 @@ void PostSensorData(void)
 
     String  Str  = PosDataLinkVal("Water_Temperature"     ,SensorData.Temp              ,false);//水温上传
             Str += PosDataLinkVal("Lingth_Intensity"      ,SensorData.Ligth             ,false);//光强上传
-            Str += PosDataLinkVal("Power_Voltage"         ,SensorData.PowerValue        ,false);//电源电压上传
+            Str += PosDataLinkVal("Power_In_Voltage"      ,SensorData.PowerInValue      ,false);//电源输入电压上传
+            Str += PosDataLinkVal("Power_Up_Voltage"      ,SensorData.PowerUpValue      ,false);//电源升压电压上传
             Str += PosDataLinkVal("Water_level"           ,SensorData.WaterLevel        ,false);//水位上传上传
             Str += PosDataLinkVal("Water_Pump_Speed"      ,SensorData.PumpSpeed         ,false);//水泵转速上传
             Str += PosDataLinkVal("millis"                ,(float)millis()/1000/60/60   ,false);//开机时间上传
@@ -95,7 +96,7 @@ void NetConnect(void *pt)
 
 void DeviceInit(void)
 {
-  Control.Water_Pump_Power = 255;
+  Control.Water_Pump_Power = 255-255;
   Control.Air_Pump_Power = 255;
   Control.LED_Power = 0;
   Control.Feed_Switch = false;
@@ -103,7 +104,7 @@ void DeviceInit(void)
   Control.LightDownCount = 0;
 
   pinMode(PumpPWMIO,OUTPUT);//指示LED控制GPIO
-  ledcSetup(PumpPWM_CH, 5000, 8); // 设置通道
+  ledcSetup(PumpPWM_CH, 15000, 8); // 设置通道
   ledcAttachPin(PumpPWMIO, PumpPWM_CH);  // 将通道与对应的引脚连接,LED_Power
   ledcWrite(PumpPWM_CH,Control.Water_Pump_Power);
 
@@ -222,7 +223,7 @@ void DeviceConnect(void *pt)
       {
           if(Control.LightDownCount++ >= 2000)//光强连续低于阈值保600s后才自动开启LED
           {
-            Control.LightDownCount = 100;
+            Control.LightDownCount = 2000;
             Control.Auto_LED = true;
             ledcWrite(LEDPWM_CH,255);
           }
@@ -241,7 +242,7 @@ void DeviceConnect(void *pt)
 
       if(Control.Water_Pump_Power < 0)//强制开启水泵
       {
-        ledcWrite(PumpPWM_CH,255);
+        ledcWrite(PumpPWM_CH,255-255);
       }
       else if(SensorData.WaterLevel <= Water_Offset)//没有强制开启水泵且水位异常后强制关闭水泵
       {
@@ -252,7 +253,7 @@ void DeviceConnect(void *pt)
 
       if(TimePointCheck(PumpTimeMaintainStr,true) == -1 && Control.Auto_StarAndStop == 0 && Control.Water_Pump_Power >= 0)//非自动维护状态下按服务设置，设置泵PWM
       {
-        ledcWrite(PumpPWM_CH,Control.Water_Pump_Power);
+        ledcWrite(PumpPWM_CH,255-Control.Water_Pump_Power);
       }
 
       ledcWrite(AirPumpPWM_CH,Control.Air_Pump_Power);
@@ -280,9 +281,9 @@ void FeedConnect(void *pt)
     {
         Auto_StarAndStopFlag = !Auto_StarAndStopFlag;
         if(Auto_StarAndStopFlag == 0)
-          ledcWrite(PumpPWM_CH,0);
+          ledcWrite(PumpPWM_CH,255-0);
         else
-          ledcWrite(PumpPWM_CH,255);
+          ledcWrite(PumpPWM_CH,255-255);
     }
 
     //vTaskResume(_GetSensorData);
