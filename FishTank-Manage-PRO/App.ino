@@ -1,12 +1,15 @@
 #include"relate.h"
 
 ControlType Control;
-#define FeedCheckDelay (uint32_t) 1000*20
+#define FeedCheckDelay (uint32_t) 1000*10
 #define FeedMotorDelay (uint32_t) 1000*1
 
+#define HumidityDelay (uint32_t) 100
 //String FeedTimeStr = "06:00,10:00,14:00,18:00,22:15,02.00";
 String FeedTimeStr = "";
-String PumpTimeMaintainStr = "07:00,19:00";
+String PumpTimeMaintainStr = "06:00,08:00,10:00,12:00,14:00,16:00,18:00,20:00,22:00,00:00,01:00";//下位机固定维护的时间
+
+uint8_t HumidityState = HumidityOFF;
 
 void PostSensorData(void)
 {
@@ -16,15 +19,19 @@ void PostSensorData(void)
             Str += PosDataLinkVal("Lingth_Intensity"      ,SensorData.Ligth             ,false);//光强上传
             Str += PosDataLinkVal("Power_In_Voltage"      ,SensorData.PowerInValue      ,false);//电源输入电压上传
             Str += PosDataLinkVal("Power_Up_Voltage"      ,SensorData.PowerUpValue      ,false);//电源升压电压上传
+            Str += PosDataLinkVal("Power_Down_Voltage"    ,SensorData.PowerDownValue    ,false);//电源降压电压上传
             Str += PosDataLinkVal("Water_level"           ,SensorData.WaterLevel        ,false);//水位上传上传
             Str += PosDataLinkVal("Water_Pump_Speed"      ,SensorData.PumpSpeed         ,false);//水泵转速上传
             Str += PosDataLinkVal("millis"                ,(float)millis()/1000/60/60   ,false);//开机时间上传
             Str += PosDataLinkVal("Feed_Count"            ,SensorData.FeedCount         ,false);//喂食次数上传
             Str += PosDataLinkVal("Warn_Flag"             ,SensorData.WarnFlag          ,false);//报警标记位上传
-            Str += PosDataLinkVal("Auto_LED"             ,  Control.Auto_LED            ,false);//自动LED控制标记位上传
+            Str += PosDataLinkVal("Auto_LED"              ,Control.Auto_LED             ,false);//自动LED控制标记位上传
+            Str += PosDataLinkVal("Auto_Humidity"         ,Control.Auto_Humidity        ,false);//自动加湿器控制标记位上传
+            Str += PosDataLinkVal("Water_Pump_Power_Gain" ,Control.Water_Pump_Power_Gain,false);//泵补偿系数
 
             Str += PosDataLinkStr("FeedTimeStr"          ,FeedTimeStr                   ,false);//喂食时间设置上传
-            Str += PosDataLinkStr("PumpTimeMaintainStr"  ,PumpTimeMaintainStr           ,true); //泵维护时间设置上传
+            Str += PosDataLinkStr("PumpTimeMaintainStr"  ,PumpTimeMaintainStr           ,true);//泵维护时间设置上传
+
 
     PosServerData(Str);
     Serial.printf("\r\nPostSensorData End = %d\r\n",millis());
@@ -45,7 +52,7 @@ void GetServerOrder(void)
 {
     Serial.printf("\r\nGetServerOrder Start = %d\r\n",millis());
 
-    String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop,FeedTimePoint,PumpTimeMaintainPoint");//获取服务数据
+    String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop,FeedTimePoint,Humidity_Switch");//获取服务数据
     //String ServerData = GetServerData("Water_Pump_Power,Air_Pump_Power,LED_Power,Feed_Switch,Auto_StarAndStop");
 
     //Serial.println("ServerData = " + ServerData);
@@ -57,9 +64,10 @@ void GetServerOrder(void)
       Control.LED_Power         = GetServerDataValue("LED_Power",ServerData)/100*255;
       Control.Auto_StarAndStop  = GetServerDataValue("Auto_StarAndStop",ServerData);
       Control.Feed_Switch       = GetServerDataValue("Feed_Switch",ServerData);
+      Control.Humidity_Switch   = GetServerDataValue("Humidity_Switch",ServerData);
 
       FeedTimeStr           = GetServerDataString("FeedTimePoint",ServerData);
-      PumpTimeMaintainStr   = GetServerDataString("PumpTimeMaintainPoint",ServerData);
+      //PumpTimeMaintainStr   = GetServerDataString("PumpTimeMaintainPoint",ServerData);//改为间隔1小时维护一次
     }
 
     Serial.printf("Control.Water_Pump_Power = %d\r\n" ,Control.Water_Pump_Power);
@@ -67,6 +75,7 @@ void GetServerOrder(void)
     Serial.printf("Control.LED_Power        = %d\r\n" ,Control.LED_Power);
     Serial.printf("Control.Feed_Switch      = %d\r\n" ,Control.Feed_Switch);
     Serial.printf("Control.Auto_StarAndStop = %d\r\n" ,Control.Auto_StarAndStop);
+    Serial.printf("Control.Humidity_Switch  = %d\r\n" ,Control.Humidity_Switch);
 
     Serial.println(FeedTimeStr);
     Serial.println(PumpTimeMaintainStr);
@@ -94,14 +103,48 @@ void NetConnect(void *pt)
   }
 }
 
+void HumidityControl(uint8_t state)
+{
+
+  if(Control.HumidityState == state) return;
+
+  Control.HumidityState = state;
+  digitalWrite(HumidityResetIO, LOW);//不管切换哪个状态都先复位
+  digitalWrite(HumidityControlIO, HIGH);
+  vTaskDelay(HumidityDelay/2);
+  digitalWrite(HumidityResetIO, HIGH);
+  vTaskDelay(HumidityDelay/2);
+
+  if(state == HumidityOn1)
+  {
+      digitalWrite(HumidityControlIO,LOW);
+      vTaskDelay(HumidityDelay);
+      digitalWrite(HumidityControlIO,HIGH);
+  }
+  else if(state == HumidityOn2)
+  {
+      digitalWrite(HumidityControlIO,LOW);
+      vTaskDelay(HumidityDelay);
+      digitalWrite(HumidityControlIO,HIGH);
+      vTaskDelay(HumidityDelay);
+      digitalWrite(HumidityControlIO,LOW);
+      vTaskDelay(HumidityDelay);
+      digitalWrite(HumidityControlIO,HIGH);
+  }
+}
+
 void DeviceInit(void)
 {
-  Control.Water_Pump_Power = 255-255;
-  Control.Air_Pump_Power = 255;
-  Control.LED_Power = 0;
+  Control.Water_Pump_Power = 255-200;
+  Control.Air_Pump_Power = 200;
+  Control.LED_Power = 200;
   Control.Feed_Switch = false;
   Control.Auto_LED = false;
-  Control.LightDownCount = 0;
+  Control.LightDownCount = 1950;
+  Control.HumidityState = HumidityOFF;
+  Control.Humidity_Switch = HumidityOFF;
+  Control.TempUpCount = 1950;
+  Control.Water_Pump_Power_Gain = 1;
 
   pinMode(PumpPWMIO,OUTPUT);//指示LED控制GPIO
   ledcSetup(PumpPWM_CH, 15000, 8); // 设置通道
@@ -109,7 +152,7 @@ void DeviceInit(void)
   ledcWrite(PumpPWM_CH,Control.Water_Pump_Power);
 
   pinMode(LEDPWMIO,OUTPUT);//指示LED控制GPIO
-  ledcSetup(LEDPWM_CH, 200, 8); // 设置通道
+  ledcSetup(LEDPWM_CH, 500, 8); // 设置通道
   ledcAttachPin(LEDPWMIO, LEDPWM_CH);  // 将通道与对应的引脚连接,LED_Power
   ledcWrite(LEDPWM_CH,Control.LED_Power);
 
@@ -128,7 +171,14 @@ void DeviceInit(void)
 
   pinMode(BuzzIO,OUTPUT);//指示LED控制GPIO
   digitalWrite(BuzzIO, LOW);
-  
+
+
+
+  pinMode(HumidityControlIO,OUTPUT);//加湿器状态按钮
+  digitalWrite(HumidityControlIO, HIGH);
+
+  pinMode(HumidityResetIO,OUTPUT);//加湿器复位开关（电源开关）
+  digitalWrite(HumidityResetIO, LOW);
 }
 
 void FeedDeviceConnect(void)
@@ -190,10 +240,14 @@ int TimePointCheck(String str ,uint8_t IsHour)
 
 void DeviceConnect(void *pt)
 {
+  int16_t Water_Pump_Power;
   while(1)
   {
+      
       digitalWrite(StatLEDIO, !digitalRead(StatLEDIO));
-      int Sum = Control.Water_Pump_Power + Control.LED_Power + Control.Air_Pump_Power + Control.Feed_Switch + Control.Auto_StarAndStop + SensorData.FeedCount + Control.Auto_LED;
+      int Sum = Control.Water_Pump_Power + Control.LED_Power + Control.Air_Pump_Power + Control.Feed_Switch + Control.Auto_StarAndStop + SensorData.FeedCount + Control.Auto_LED + Control.HumidityState;
+
+
       if(Sum != Control.Order_Sum)//判断是否有指令更新
       {
         Control.Order_Sum = Sum;
@@ -208,14 +262,35 @@ void DeviceConnect(void *pt)
       {
         vTaskDelay(300);
       }
+      
+      Control.Water_Pump_Power_Gain = (12 - SensorData.PowerInValue)*PWM_Gain + 1;//计算电压跌落后的水泵PWM补偿值
+      Water_Pump_Power = Control.Water_Pump_Power*Control.Water_Pump_Power_Gain;  //电压跌落时补偿占空比
 
-      if(Control.Water_Pump_Power <= PWM_Offset && Control.Water_Pump_Power > 0) Control.Water_Pump_Power = 0;
+      
+
+      if(Water_Pump_Power >= 255) Water_Pump_Power = 255;
+
+      if(Water_Pump_Power <= PWM_Offset && Water_Pump_Power > 0) Water_Pump_Power = 0;
       if(Control.LED_Power <= PWM_Offset && Control.LED_Power > 0) Control.LED_Power = 0;
       if(Control.Air_Pump_Power <= PWM_Offset) Control.Air_Pump_Power = 0;
 
+ 
+      if(SensorData.Temp >= 32 && Control.Humidity_Switch != true)
+      {
+        if(Control.TempUpCount++ >= 2000)
+        {
+          HumidityControl(HumidityOn2);
+        }
+      }
+      else
+      {
+        Control.TempUpCount = 0;
+        HumidityControl(Control.Humidity_Switch);
+      }
+
       if(Control.LED_Power < 0)
       {
-          Control.LightDownCount = 0;
+          Control.LightDownCount = 1950;
           Control.Auto_LED = false;
           ledcWrite(LEDPWM_CH,0);
       }
@@ -225,7 +300,7 @@ void DeviceConnect(void *pt)
           {
             Control.LightDownCount = 2000;
             Control.Auto_LED = true;
-            ledcWrite(LEDPWM_CH,255);
+            ledcWrite(LEDPWM_CH,200);
           }
           else 
           {
@@ -240,20 +315,22 @@ void DeviceConnect(void *pt)
           ledcWrite(LEDPWM_CH,Control.LED_Power);
       }
 
-      if(Control.Water_Pump_Power < 0)//强制开启水泵
+      Serial.printf("\r\nWater_Pump_Power = %d\r\n",Water_Pump_Power);
+
+      if(Water_Pump_Power < 0)//强制开启水泵
       {
-        ledcWrite(PumpPWM_CH,255-255);
+        ledcWrite(PumpPWM_CH,255 - 255);
       }
       else if(SensorData.WaterLevel <= Water_Offset)//没有强制开启水泵且水位异常后强制关闭水泵
       {
         Serial.println("Control.Water_Pump_Power = 0;");
-        Control.Water_Pump_Power = 0;
+        Water_Pump_Power = 0;
       }
 
 
       if(TimePointCheck(PumpTimeMaintainStr,true) == -1 && Control.Auto_StarAndStop == 0 && Control.Water_Pump_Power >= 0)//非自动维护状态下按服务设置，设置泵PWM
       {
-        ledcWrite(PumpPWM_CH,255-Control.Water_Pump_Power);
+        ledcWrite(PumpPWM_CH,255-Water_Pump_Power);
       }
 
       ledcWrite(AirPumpPWM_CH,Control.Air_Pump_Power);
@@ -274,7 +351,7 @@ void FeedConnect(void *pt)
     if(TimePointCheck(FeedTimeStr,false) != -1 || Control.Feed_Switch != 0)
     {
         FeedDeviceConnect();
-        vTaskDelay(1000*40);//自动喂食后强制等40s避免喂食两次
+        vTaskDelay(1000*50);//自动喂食后强制等50s避免喂食两次
     }
 
     if(TimePointCheck(PumpTimeMaintainStr,true) != -1 || Control.Auto_StarAndStop == 1)
@@ -285,9 +362,6 @@ void FeedConnect(void *pt)
         else
           ledcWrite(PumpPWM_CH,255-255);
     }
-
-    //vTaskResume(_GetSensorData);
-    //vTaskResume(_NetConnect);
 
     vTaskDelay(FeedCheckDelay);
   }

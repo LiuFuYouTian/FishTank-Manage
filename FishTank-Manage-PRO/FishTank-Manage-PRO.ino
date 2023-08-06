@@ -33,6 +33,5 @@ void loop() {
     Serial.println("configTime");
   }
   //Serial.println(&timeinfo, "%F %T %A"); // 格式化输出:2021-10-24 23:00:44 Sunday
-
 }
 

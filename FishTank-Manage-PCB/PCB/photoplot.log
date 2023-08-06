@@ -1,0 +1,468 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    ARTWORK LOG                                                      )
+(                                                                     )
+(    Drawing          : FishTank-Manage.brd                           )
+(    Software Version : 17.4S032                                      )
+(    Date/Time        : Mon Jul 31 00:13:20 2023                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+ ---- Photoplot outline rectangle not found; using drawing extents.
+
+
+
+
+ Can't open parameter file ... using default values:
+     DEVICE-TYPE        GERBER6X00
+     G-CODES            NO
+     STATIONS-PER-WHEEL 24
+     FILM-SIZE          24000 16000
+     COORDINATES        ABSOLUTE
+     OUTPUT-UNITS       INCHES
+     FORMAT             5.3
+     ABORT-ON-ERROR     abort film & continue
+     SUPPRESS-LEAD-ZEROES     YES
+     SUPPRESS-TRAIL-ZEROES    NO
+     OPTIMIZE           YES
+     SUPPRESS-EQUAL     YES
+     SCALE              1.0
+
+
+
+ WARNING: Generating english output data from a metric database
+ may cause slight roundoff error of coordinates in output file.
+
+
+
+
+================================================================
+     PROCESSING FILM < 01_TOP >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/01_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00004                                  DARK 
+  CIRCLE     0.01000                                  DARK 
+  CIRCLE     0.02400                                  DARK 
+  CIRCLE     0.04331                                  DARK 
+  CIRCLE     0.05118                                  DARK 
+  CIRCLE     0.05315                                  DARK 
+  CIRCLE     0.05512                                  DARK 
+  CIRCLE     0.15748                                  DARK 
+  SQUARE     0.04331                     0.000 NO     DARK 
+  SQUARE     0.05315                     0.000 NO     DARK 
+  RECTANGLE  0.03346     x 0.05512      90.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740      90.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937       0.000 NO     DARK 
+
+     01_TOP created with warnings
+
+
+================================================================
+     PROCESSING FILM < 04_BOTTOM >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/04_BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00004                                  DARK 
+  CIRCLE     0.00500                                  DARK 
+  CIRCLE     0.01000                                  DARK 
+  CIRCLE     0.02000                                  DARK 
+  CIRCLE     0.02400                                  DARK 
+  CIRCLE     0.04331                                  DARK 
+  CIRCLE     0.05118                                  DARK 
+  CIRCLE     0.05315                                  DARK 
+  CIRCLE     0.05512                                  DARK 
+  CIRCLE     0.15748                                  DARK 
+  SQUARE     0.04331                     0.000 NO     DARK 
+  SQUARE     0.05315                     0.000 NO     DARK 
+  RECTANGLE  0.02559     x 0.06004       0.000 NO     DARK 
+  RECTANGLE  0.03150     x 0.04528       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740      90.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937       0.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937      90.000 NO     DARK 
+  RECTANGLE  0.04016     x 0.10709       0.000 NO     DARK 
+  RECTANGLE  0.04016     x 0.10709      90.000 NO     DARK 
+  RECTANGLE  0.04724     x 0.02362       0.000 NO     DARK 
+  RECTANGLE  0.04724     x 0.02362      90.000 NO     DARK 
+  RECTANGLE  0.06102     x 0.08661      90.000 NO     DARK 
+  RECTANGLE  0.08858     x 0.12402       0.000 NO     DARK 
+  RECTANGLE  0.10433     x 0.11811       0.000 NO     DARK 
+  RECTANGLE  0.12598     x 0.12795       0.000 NO     DARK 
+
+     04_BOTTOM created with warnings
+
+
+================================================================
+     PROCESSING FILM < SOLDER_TOP >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/SOLDER_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.04331                                  DARK 
+  CIRCLE     0.05118                                  DARK 
+  CIRCLE     0.05315                                  DARK 
+  CIRCLE     0.05512                                  DARK 
+  CIRCLE     0.15748                                  DARK 
+  SQUARE     0.04331                     0.000 NO     DARK 
+  SQUARE     0.05315                     0.000 NO     DARK 
+  RECTANGLE  0.03346     x 0.05512      90.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740      90.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937       0.000 NO     DARK 
+
+     SOLDER_TOP created with warnings
+
+
+================================================================
+     PROCESSING FILM < SOLDER_BOOTOM >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/SOLDER_BOOTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.04331                                  DARK 
+  CIRCLE     0.05118                                  DARK 
+  CIRCLE     0.05315                                  DARK 
+  CIRCLE     0.05512                                  DARK 
+  CIRCLE     0.15748                                  DARK 
+  SQUARE     0.04331                     0.000 NO     DARK 
+  SQUARE     0.05315                     0.000 NO     DARK 
+  RECTANGLE  0.02559     x 0.06004       0.000 NO     DARK 
+  RECTANGLE  0.03150     x 0.04528       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740      90.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937       0.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937      90.000 NO     DARK 
+  RECTANGLE  0.04016     x 0.10709       0.000 NO     DARK 
+  RECTANGLE  0.04016     x 0.10709      90.000 NO     DARK 
+  RECTANGLE  0.04724     x 0.02362       0.000 NO     DARK 
+  RECTANGLE  0.04724     x 0.02362      90.000 NO     DARK 
+  RECTANGLE  0.06102     x 0.08661      90.000 NO     DARK 
+  RECTANGLE  0.08858     x 0.12402       0.000 NO     DARK 
+  RECTANGLE  0.10433     x 0.11811       0.000 NO     DARK 
+  RECTANGLE  0.12598     x 0.12795       0.000 NO     DARK 
+
+     SOLDER_BOOTOM created with warnings
+
+
+================================================================
+     PROCESSING FILM < PAST_TOP >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/PAST_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  RECTANGLE  0.03346     x 0.05512      90.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740      90.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937       0.000 NO     DARK 
+
+     PAST_TOP created with warnings
+
+
+================================================================
+     PROCESSING FILM < PAST_BOOTOM >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/PAST_BOOTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  RECTANGLE  0.02559     x 0.06004       0.000 NO     DARK 
+  RECTANGLE  0.03150     x 0.04528       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740       0.000 NO     DARK 
+  RECTANGLE  0.03543     x 0.03740      90.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937       0.000 NO     DARK 
+  RECTANGLE  0.03740     x 0.03937      90.000 NO     DARK 
+  RECTANGLE  0.04016     x 0.10709       0.000 NO     DARK 
+  RECTANGLE  0.04016     x 0.10709      90.000 NO     DARK 
+  RECTANGLE  0.04724     x 0.02362       0.000 NO     DARK 
+  RECTANGLE  0.04724     x 0.02362      90.000 NO     DARK 
+  RECTANGLE  0.06102     x 0.08661      90.000 NO     DARK 
+  RECTANGLE  0.08858     x 0.12402       0.000 NO     DARK 
+  RECTANGLE  0.10433     x 0.11811       0.000 NO     DARK 
+  RECTANGLE  0.12598     x 0.12795       0.000 NO     DARK 
+
+     PAST_BOOTOM created with warnings
+
+
+================================================================
+     PROCESSING FILM < SILK_TOP >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/SILK_TOP.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00394                                  DARK 
+  CIRCLE     0.00500                                  DARK 
+  CIRCLE     0.00787                                  DARK 
+  CIRCLE     0.01000                                  DARK 
+  CIRCLE     0.02000                                  DARK 
+
+     SILK_TOP created with warnings
+
+
+================================================================
+     PROCESSING FILM < SILK_BOTTOM >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/SILK_BOTTOM.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00500                                  DARK 
+  CIRCLE     0.00787                                  DARK 
+
+     SILK_BOTTOM created with warnings
+
+
+================================================================
+     PROCESSING FILM < DRILL >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/DRILL.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+    WARNING: rectangle or unfilled shape composed 0 width line found at (-31.2420 70.4620) in MM
+           ... ignored.
+
+    WARNING: 0 width line found at (-31.2420 76.8120) in MM
+           ... ignored.
+
+    WARNING: Multiple 0 width lines; all will be treated the same as the first.
+           ... ignored.
+
+    WARNING: text composed 0 width line found at (-19.8247 122.8495) in MM
+           ... ignored.
+
+    WARNING: text having Multiple 0 width lines; all will be treated the same as the first.
+           ... ignored.
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00004                                  DARK 
+
+     DRILL created with warnings
+
+
+================================================================
+     PROCESSING FILM < 02_POWER >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/02_POWER.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00004                                  DARK 
+  CIRCLE     0.01000                                  DARK 
+  CIRCLE     0.02400                                  DARK 
+  CIRCLE     0.04331                                  DARK 
+  CIRCLE     0.05118                                  DARK 
+  CIRCLE     0.05315                                  DARK 
+  CIRCLE     0.05512                                  DARK 
+  CIRCLE     0.15748                                  DARK 
+
+     02_POWER created with warnings
+
+
+================================================================
+     PROCESSING FILM < 03_GND >
+     TO FILE < C:/Users/a1833/OneDrive/文档/Arduino/FishTank-Manage/FishTank-Manage-PCB/PCB/gerber/03_GND.art > ...
+================================================================
+
+  FILM PARAMETERS :
+  ---------------------------------------------------------
+  Undefined line width                0.0000
+  Mirror code                         NONE
+  Rotate angle                        NONE
+  Offset x:                           0.0000
+  Offset y:                           0.0000
+  Plot negative                       NO
+  Suppress unconnected internal pads  NO
+  Draw holes only                     NO
+
+
+
+  APERTURES USED (UNIT = IN):
+  ---------------------------------------------------------
+  TYPE       SIZE/NAME                   ROT   MIRROR MODE 
+  ---------------------------------------------------------
+  CIRCLE     0.00004                                  DARK 
+  CIRCLE     0.02400                                  DARK 
+  CIRCLE     0.04331                                  DARK 
+  CIRCLE     0.05118                                  DARK 
+  CIRCLE     0.05315                                  DARK 
+  CIRCLE     0.05512                                  DARK 
+  CIRCLE     0.15748                                  DARK 
+
+     03_GND created with warnings
+
+
+------------------------------------------------------
+ SUMMARY:
+        01_TOP created with warnings
+        04_BOTTOM created with warnings
+        SOLDER_TOP created with warnings
+        SOLDER_BOOTOM created with warnings
+        PAST_TOP created with warnings
+        PAST_BOOTOM created with warnings
+        SILK_TOP created with warnings
+        SILK_BOTTOM created with warnings
+        DRILL created with warnings
+        02_POWER created with warnings
+        03_GND created with warnings
+
+ ARTWORK had warnings
